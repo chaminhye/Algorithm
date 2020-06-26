@@ -1,6 +1,7 @@
 package greedy;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Greedy1 {
@@ -10,6 +11,8 @@ public class Greedy1 {
 		int[] lost = {2,4};
 		int[] reserve = {1,3,5};
 		
+//		List<Integer> lostList = new ArrayList<Integer>(Arrays.asList(lost));
+		List<Integer> reserveList = new ArrayList<>();
 		List<Integer> studentList = new ArrayList<>();
 		for(int i=1; i<= n; i++) {
 			studentList.add(i);
