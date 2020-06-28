@@ -22,4 +22,11 @@ public class Greedy5 {
 			-15 지점에 카메라를 설치하면 첫 번째, 세 번째 차량이 카메라를 만납니다.
 	 * */
 	
+	static public void main(String args[]) {
+		int[][] routes = {{-20,15},{-14,-5},{-18,-13},{-5,-3}};
+		
+		// 구간이 젤 긴구간 순으로 내림차순 정렬
+		// a,b,c,d -> a-b /a-c/a-d 비교해서 해당 지점 찾기
+	}
+	
 }

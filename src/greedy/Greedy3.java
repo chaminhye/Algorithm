@@ -75,11 +75,6 @@ System.out.println(map);
 		}
 
 		System.out.println(answer);
-		System.out.println(answerIdxArr[1]);
-		System.out.println(answerIdxArr[2]);
-		System.out.println(answerIdxArr[3]);
-		System.out.println(answerIdxArr[4]);
-		System.out.println(answerIdxArr[5]);
 	}
 	
 }

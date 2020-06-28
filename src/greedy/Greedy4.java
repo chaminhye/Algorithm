@@ -34,7 +34,7 @@ public class Greedy4 {
 		Arrays.sort(people);
 		Queue<Object> queue = new LinkedList<>(Arrays.asList(people));
 		
-		int totalWeight = 0;
+//		int totalWeight = 0;
 
 		while(!queue.isEmpty()) {
 			System.out.println((int)queue.peek());
