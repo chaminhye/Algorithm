@@ -1,8 +1,8 @@
 package greedy;
 
 import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.Queue;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class Greedy4 {
 	/**
@@ -27,74 +27,66 @@ public class Greedy4 {
 			[70, 80, 50]	    100	      3
 	 * */
 	static public void main(String args[]) {
-		int[] people = {70, 50, 80, 50};
-		int limit = 100;
-		int answer = 0;
+		int[] people = {40, 40, 40};
+		int limit = 120;
+//		int[] people = {70, 50, 80, 50};
+	//	int limit = 100;
+		int totalWeight = 0;
+		int answer = people.length;
 		
 		Arrays.sort(people);
-		Queue<Object> queue = new LinkedList<>(Arrays.asList(people));
-		
-//		int totalWeight = 0;
+		List<Integer> list = Arrays.stream(people).boxed().collect(Collectors.toList());
 
-		while(!queue.isEmpty()) {
-			System.out.println((int)queue.peek());
-			if(queue.size() == 1) {
-				answer += 1;
-				break;
-			}
-			int man = (int)queue.poll();
-			int duplicate = 0;
-			
-			int remainder = limit - man;				// 현재 사람이 보트에 타고 남은 무게
-			System.out.println("man : "+man+" / "+"remainder : "+remainder);
-			
-			if(remainder >= (int)queue.peek()) {		// 다음사람이 보트에 탈 수 있음
+		for(int i=0; i< list.size(); i++) {
+			int together = 0;
+			if(i < list.size() -1 ) {
+				totalWeight = list.get(i) + list.get(i+1);
 				
-				queue.poll();
-				duplicate++;
-				System.out.println("duplicate : "+duplicate);
-				
-				while(remainder >= (int)queue.peek()) {
-					queue.poll();
-					duplicate++;
+				if(totalWeight <= limit) {
+					System.out.println("i : "+i+"totalWeight : " + totalWeight+" / "+list.get(i) + " / "+list.get(i+1));
+					if(i+2 <= list.size()-1) {
+						System.out.println("here");
+						totalWeight = totalWeight + list.get(i+2);
+						together ++;
+					}
+				}else {
+					together = 0;
 				}
 			}
-			System.out.println("duplicate : "+duplicate);
+			answer -= together;
+			System.out.println("together : "+together+"/	answer : " + answer);
 		}
 		
+		/*
+		for(int i=0;i< people.length;i++) {
+			System.out.println("list : "+list);
+			int together = 0;							// 같이 탈 수 있는 인원
+			int remainder = limit - people[i];			// 보트에 탈 수 있는 무게
+			
+			System.out.println("	타는 사람 : "+people[i]+"	탈 수 있는 무게 : "+remainder);
+			if(list.size() >= 1) {
+				if(remainder >= 40) {
+					
+					list.remove((Object)people[i]);						
+
+					for(int j=0; j<list.size(); j++) {
+						if(list.get(j) <= remainder) {		// 구명보트 함께 탈 수 있음 
+							System.out.println("	 :  "+list.get(j));
+							remainder = remainder - list.get(j);
+							list.remove(list.get(j));
+							together ++;
+						}
+						
+						if(remainder >= 40) {
+							list.remove(list.get(j+1));
+							together ++;
+						}
+					}	
+				}
+			}
+			answer -= together;
+			System.out.println("	together : "+together+"	answer : "+answer);
+		}
+		 */
 	}
 }
-/**
- 		int boatCnt = people.length;
-		int[] remainder = new int[people.length];
-		List<Integer> list = Arrays.stream(people).boxed().collect(Collectors.toList());
-		//Collections.sort(list);
-		
-		for(int i=0;i< people.length;i++) {
-			double cnt = 0;
-			System.out.println("list : "+list);
-			remainder[i] = limit - people[i];
-			
-			for(int j=0; j<list.size(); j++) {
-				System.out.println("	타는 사람 : "+people[i]+"	탈 수 있는 무게 : "+remainder[i]+"/ 가능한 사람 :	"+list.get(j));
-				if(list.get(j) <= remainder[i]) {		// 구명보트 함께 탈 수 있음 
-//					list.remove(remainder[i]);
-					list.remove(j);
-					cnt ++;
-					break;
-				}else {									// 구명보트 혼자 타야함
-					cnt = 0;
-				}
-			}	
-			if(cnt > 0) {
-				System.out.println("cnt is not equal 0");
-				boatCnt -= 0.5;
-			}
-			System.out.println("	cnt : "+cnt+"	boatCnt : "+boatCnt);
-			
-		}
-		answer = (int)boatCnt;
-		System.out.println(answer);
-
- * 
- * */
