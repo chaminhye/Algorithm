@@ -6,22 +6,22 @@ import java.util.stream.Collectors;
 
 public class Greedy4 {
 	/**
-	 * ¹®Á¦ ¼³¸í
-			¹«ÀÎµµ¿¡ °¤Èù »ç¶÷µéÀ» ±¸¸íº¸Æ®¸¦ ÀÌ¿ëÇÏ¿© ±¸ÃâÇÏ·Á°í ÇÕ´Ï´Ù. ±¸¸íº¸Æ®´Â ÀÛ¾Æ¼­ ÇÑ ¹ø¿¡ ÃÖ´ë 2¸í¾¿ ¹Û¿¡ Å» ¼ö ¾ø°í, ¹«°Ô Á¦ÇÑµµ ÀÖ½À´Ï´Ù.
+	 * ë¬¸ì œ ì„¤ëª…
+			ë¬´ì¸ë„ì— ê°‡ížŒ ì‚¬ëžŒë“¤ì„ êµ¬ëª…ë³´íŠ¸ë¥¼ ì´ìš©í•˜ì—¬ êµ¬ì¶œí•˜ë ¤ê³  í•©ë‹ˆë‹¤. êµ¬ëª…ë³´íŠ¸ëŠ” ìž‘ì•„ì„œ í•œ ë²ˆì— ìµœëŒ€ 2ëª…ì”© ë°–ì— íƒˆ ìˆ˜ ì—†ê³ , ë¬´ê²Œ ì œí•œë„ ìžˆìŠµë‹ˆë‹¤.
 			
-			¿¹¸¦ µé¾î, »ç¶÷µéÀÇ ¸ö¹«°Ô°¡ [70kg, 50kg, 80kg, 50kg]ÀÌ°í ±¸¸íº¸Æ®ÀÇ ¹«°Ô Á¦ÇÑÀÌ 100kgÀÌ¶ó¸é 2¹øÂ° »ç¶÷°ú 4¹øÂ° »ç¶÷Àº °°ÀÌ Å» ¼ö ÀÖÁö¸¸ 1¹øÂ° »ç¶÷°ú 3¹øÂ° »ç¶÷ÀÇ ¹«°ÔÀÇ ÇÕÀº 150kgÀÌ¹Ç·Î ±¸¸íº¸Æ®ÀÇ ¹«°Ô Á¦ÇÑÀ» ÃÊ°úÇÏ¿© °°ÀÌ Å» ¼ö ¾ø½À´Ï´Ù.
+			ì˜ˆë¥¼ ë“¤ì–´, ì‚¬ëžŒë“¤ì˜ ëª¸ë¬´ê²Œê°€ [70kg, 50kg, 80kg, 50kg]ì´ê³  êµ¬ëª…ë³´íŠ¸ì˜ ë¬´ê²Œ ì œí•œì´ 100kgì´ë¼ë©´ 2ë²ˆì§¸ ì‚¬ëžŒê³¼ 4ë²ˆì§¸ ì‚¬ëžŒì€ ê°™ì´ íƒˆ ìˆ˜ ìžˆì§€ë§Œ 1ë²ˆì§¸ ì‚¬ëžŒê³¼ 3ë²ˆì§¸ ì‚¬ëžŒì˜ ë¬´ê²Œì˜ í•©ì€ 150kgì´ë¯€ë¡œ êµ¬ëª…ë³´íŠ¸ì˜ ë¬´ê²Œ ì œí•œì„ ì´ˆê³¼í•˜ì—¬ ê°™ì´ íƒˆ ìˆ˜ ì—†ìŠµë‹ˆë‹¤.
 			
-			±¸¸íº¸Æ®¸¦ ÃÖ´ëÇÑ Àû°Ô »ç¿ëÇÏ¿© ¸ðµç »ç¶÷À» ±¸ÃâÇÏ·Á°í ÇÕ´Ï´Ù.
+			êµ¬ëª…ë³´íŠ¸ë¥¼ ìµœëŒ€í•œ ì ê²Œ ì‚¬ìš©í•˜ì—¬ ëª¨ë“  ì‚¬ëžŒì„ êµ¬ì¶œí•˜ë ¤ê³  í•©ë‹ˆë‹¤.
 			
-			»ç¶÷µéÀÇ ¸ö¹«°Ô¸¦ ´ãÀº ¹è¿­ people°ú ±¸¸íº¸Æ®ÀÇ ¹«°Ô Á¦ÇÑ limit°¡ ¸Å°³º¯¼ö·Î ÁÖ¾îÁú ¶§, ¸ðµç »ç¶÷À» ±¸ÃâÇÏ±â À§ÇØ ÇÊ¿äÇÑ ±¸¸íº¸Æ® °³¼öÀÇ ÃÖ¼Ú°ªÀ» return ÇÏµµ·Ï solution ÇÔ¼ö¸¦ ÀÛ¼ºÇØÁÖ¼¼¿ä.
+			ì‚¬ëžŒë“¤ì˜ ëª¸ë¬´ê²Œë¥¼ ë‹´ì€ ë°°ì—´ peopleê³¼ êµ¬ëª…ë³´íŠ¸ì˜ ë¬´ê²Œ ì œí•œ limitê°€ ë§¤ê°œë³€ìˆ˜ë¡œ ì£¼ì–´ì§ˆ ë•Œ, ëª¨ë“  ì‚¬ëžŒì„ êµ¬ì¶œí•˜ê¸° ìœ„í•´ í•„ìš”í•œ êµ¬ëª…ë³´íŠ¸ ê°œìˆ˜ì˜ ìµœì†Ÿê°’ì„ return í•˜ë„ë¡ solution í•¨ìˆ˜ë¥¼ ìž‘ì„±í•´ì£¼ì„¸ìš”.
 		
-		Á¦ÇÑ»çÇ×
-			¹«ÀÎµµ¿¡ °¤Èù »ç¶÷Àº 1¸í ÀÌ»ó 50,000¸í ÀÌÇÏÀÔ´Ï´Ù.
-			°¢ »ç¶÷ÀÇ ¸ö¹«°Ô´Â 40kg ÀÌ»ó 240kg ÀÌÇÏÀÔ´Ï´Ù.
-			±¸¸íº¸Æ®ÀÇ ¹«°Ô Á¦ÇÑÀº 40kg ÀÌ»ó 240kg ÀÌÇÏÀÔ´Ï´Ù.
-			±¸¸íº¸Æ®ÀÇ ¹«°Ô Á¦ÇÑÀº Ç×»ó »ç¶÷µéÀÇ ¸ö¹«°Ô Áß ÃÖ´ñ°ªº¸´Ù Å©°Ô ÁÖ¾îÁö¹Ç·Î »ç¶÷µéÀ» ±¸ÃâÇÒ ¼ö ¾ø´Â °æ¿ì´Â ¾ø½À´Ï´Ù.
+		ì œí•œì‚¬í•­
+			ë¬´ì¸ë„ì— ê°‡ížŒ ì‚¬ëžŒì€ 1ëª… ì´ìƒ 50,000ëª… ì´í•˜ìž…ë‹ˆë‹¤.
+			ê° ì‚¬ëžŒì˜ ëª¸ë¬´ê²ŒëŠ” 40kg ì´ìƒ 240kg ì´í•˜ìž…ë‹ˆë‹¤.
+			êµ¬ëª…ë³´íŠ¸ì˜ ë¬´ê²Œ ì œí•œì€ 40kg ì´ìƒ 240kg ì´í•˜ìž…ë‹ˆë‹¤.
+			êµ¬ëª…ë³´íŠ¸ì˜ ë¬´ê²Œ ì œí•œì€ í•­ìƒ ì‚¬ëžŒë“¤ì˜ ëª¸ë¬´ê²Œ ì¤‘ ìµœëŒ“ê°’ë³´ë‹¤ í¬ê²Œ ì£¼ì–´ì§€ë¯€ë¡œ ì‚¬ëžŒë“¤ì„ êµ¬ì¶œí•  ìˆ˜ ì—†ëŠ” ê²½ìš°ëŠ” ì—†ìŠµë‹ˆë‹¤.
 		
-		ÀÔÃâ·Â ¿¹
+		ìž…ì¶œë ¥ ì˜ˆ
 			people	           limit	return
 			[70, 50, 80, 50]	100	      3
 			[70, 80, 50]	    100	      3
@@ -33,60 +33,29 @@ public class Greedy4 {
 	//	int limit = 100;
 		int totalWeight = 0;
 		int answer = people.length;
-		
+
+		// ë¬´ê²Œìˆœìœ¼ë¡œ ì •ë ¬
 		Arrays.sort(people);
 		List<Integer> list = Arrays.stream(people).boxed().collect(Collectors.toList());
 
-		for(int i=0; i< list.size(); i++) {
-			int together = 0;
-			if(i < list.size() -1 ) {
-				totalWeight = list.get(i) + list.get(i+1);
-				
-				if(totalWeight <= limit) {
-					System.out.println("i : "+i+"totalWeight : " + totalWeight+" / "+list.get(i) + " / "+list.get(i+1));
-					if(i+2 <= list.size()-1) {
-						System.out.println("here");
-						totalWeight = totalWeight + list.get(i+2);
-						together ++;
-					}
-				}else {
-					together = 0;
+		System.out.println("##### list : "+list);			
+		int minIdx = 0;
+		for(int i=list.size()-1; i >= 0; i--) {			// ê°€ìž¥ ê°€ë²¼ìš´ ì‚¬ëžŒ + ê°€ìž¥ ë¬´ê±°ìš´ ì‚¬ëžŒ ì¡°í•©ìœ¼ë¡œ ë™ìŠ¹ ì—¬ë¶€ ì²´í¬
+System.out.println("##### : "+list.get(i));			
+			if(list.get(minIdx) != 1 && list.get(minIdx) != 2) {
+				if(list.get(i)+list.get(minIdx) <= limit) {			// ë³´íŠ¸ì— ê°™ì´ íƒˆ ìˆ˜ ìžˆëŠ” ê²½ìš°
+					list.set(i, 2);					// ë³´íŠ¸ íƒ‘ìŠ¹ í•˜ë©´, set 0
+					list.set(minIdx, 2);
+					minIdx ++;			
+				}else {												// ë³´íŠ¸ì— ê°™ì´ íƒˆ ìˆ˜ ì—†ëŠ” ê²½ìš°
+					list.set(i, 1);
 				}
 			}
-			answer -= together;
-			System.out.println("together : "+together+"/	answer : " + answer);
-		}
-		
-		/*
-		for(int i=0;i< people.length;i++) {
-			System.out.println("list : "+list);
-			int together = 0;							// °°ÀÌ Å» ¼ö ÀÖ´Â ÀÎ¿ø
-			int remainder = limit - people[i];			// º¸Æ®¿¡ Å» ¼ö ÀÖ´Â ¹«°Ô
-			
-			System.out.println("	Å¸´Â »ç¶÷ : "+people[i]+"	Å» ¼ö ÀÖ´Â ¹«°Ô : "+remainder);
-			if(list.size() >= 1) {
-				if(remainder >= 40) {
-					
-					list.remove((Object)people[i]);						
-
-					for(int j=0; j<list.size(); j++) {
-						if(list.get(j) <= remainder) {		// ±¸¸íº¸Æ® ÇÔ²² Å» ¼ö ÀÖÀ½ 
-							System.out.println("	 :  "+list.get(j));
-							remainder = remainder - list.get(j);
-							list.remove(list.get(j));
-							together ++;
-						}
 						
-						if(remainder >= 40) {
-							list.remove(list.get(j+1));
-							together ++;
-						}
-					}	
-				}
-			}
-			answer -= together;
-			System.out.println("	together : "+together+"	answer : "+answer);
 		}
-		 */
+		System.out.println("list  : "+list.get(0));
+		System.out.println("list  : "+list.get(1));
+		System.out.println("list  : "+list.get(2));
+		
 	}
 }
