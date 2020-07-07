@@ -6,21 +6,21 @@ import java.util.List;
 public class BP4 {
 	
 	/**
-	 * ¹®Á¦ ¼³¸í
-			Leo´Â Ä«ÆêÀ» »ç·¯ °¬´Ù°¡ ¾Æ·¡ ±×¸²°ú °°ÀÌ Áß¾Ó¿¡´Â ³ë¶õ»öÀ¸·Î Ä¥ÇØÁ® ÀÖ°í Å×µÎ¸® 1ÁÙÀº °¥»öÀ¸·Î Ä¥ÇØÁ® ÀÖ´Â °ÝÀÚ ¸ð¾ç Ä«ÆêÀ» ºÃ½À´Ï´Ù.
+	 * ë¬¸ì œ ì„¤ëª…
+			LeoëŠ” ì¹´íŽ«ì„ ì‚¬ëŸ¬ ê°”ë‹¤ê°€ ì•„ëž˜ ê·¸ë¦¼ê³¼ ê°™ì´ ì¤‘ì•™ì—ëŠ” ë…¸ëž€ìƒ‰ìœ¼ë¡œ ì¹ í•´ì ¸ ìžˆê³  í…Œë‘ë¦¬ 1ì¤„ì€ ê°ˆìƒ‰ìœ¼ë¡œ ì¹ í•´ì ¸ ìžˆëŠ” ê²©ìž ëª¨ì–‘ ì¹´íŽ«ì„ ë´¤ìŠµë‹ˆë‹¤.
 			
 			carpet.png
 			
-			Leo´Â ÁýÀ¸·Î µ¹¾Æ¿Í¼­ ¾Æ±î º» Ä«ÆêÀÇ ³ë¶õ»ö°ú °¥»öÀ¸·Î »öÄ¥µÈ °ÝÀÚÀÇ °³¼ö´Â ±â¾ïÇßÁö¸¸, ÀüÃ¼ Ä«ÆêÀÇ Å©±â´Â ±â¾ïÇÏÁö ¸øÇß½À´Ï´Ù.
+			LeoëŠ” ì§‘ìœ¼ë¡œ ëŒì•„ì™€ì„œ ì•„ê¹Œ ë³¸ ì¹´íŽ«ì˜ ë…¸ëž€ìƒ‰ê³¼ ê°ˆìƒ‰ìœ¼ë¡œ ìƒ‰ì¹ ëœ ê²©ìžì˜ ê°œìˆ˜ëŠ” ê¸°ì–µí–ˆì§€ë§Œ, ì „ì²´ ì¹´íŽ«ì˜ í¬ê¸°ëŠ” ê¸°ì–µí•˜ì§€ ëª»í–ˆìŠµë‹ˆë‹¤.
 			
-			Leo°¡ º» Ä«Æê¿¡¼­ °¥»ö °ÝÀÚÀÇ ¼ö brown, ³ë¶õ»ö °ÝÀÚÀÇ ¼ö yellow°¡ ¸Å°³º¯¼ö·Î ÁÖ¾îÁú ¶§ Ä«ÆêÀÇ °¡·Î, ¼¼·Î Å©±â¸¦ ¼ø¼­´ë·Î ¹è¿­¿¡ ´ã¾Æ return ÇÏµµ·Ï solution ÇÔ¼ö¸¦ ÀÛ¼ºÇØÁÖ¼¼¿ä.
+			Leoê°€ ë³¸ ì¹´íŽ«ì—ì„œ ê°ˆìƒ‰ ê²©ìžì˜ ìˆ˜ brown, ë…¸ëž€ìƒ‰ ê²©ìžì˜ ìˆ˜ yellowê°€ ë§¤ê°œë³€ìˆ˜ë¡œ ì£¼ì–´ì§ˆ ë•Œ ì¹´íŽ«ì˜ ê°€ë¡œ, ì„¸ë¡œ í¬ê¸°ë¥¼ ìˆœì„œëŒ€ë¡œ ë°°ì—´ì— ë‹´ì•„ return í•˜ë„ë¡ solution í•¨ìˆ˜ë¥¼ ìž‘ì„±í•´ì£¼ì„¸ìš”.
 		
-		Á¦ÇÑ»çÇ×
-			°¥»ö °ÝÀÚÀÇ ¼ö brownÀº 8 ÀÌ»ó 5,000 ÀÌÇÏÀÎ ÀÚ¿¬¼öÀÔ´Ï´Ù.
-			³ë¶õ»ö °ÝÀÚÀÇ ¼ö yellow´Â 1 ÀÌ»ó 2,000,000 ÀÌÇÏÀÎ ÀÚ¿¬¼öÀÔ´Ï´Ù.
-			Ä«ÆêÀÇ °¡·Î ±æÀÌ´Â ¼¼·Î ±æÀÌ¿Í °°°Å³ª, ¼¼·Î ±æÀÌº¸´Ù ±é´Ï´Ù.
+		ì œí•œì‚¬í•­
+			ê°ˆìƒ‰ ê²©ìžì˜ ìˆ˜ brownì€ 8 ì´ìƒ 5,000 ì´í•˜ì¸ ìžì—°ìˆ˜ìž…ë‹ˆë‹¤.
+			ë…¸ëž€ìƒ‰ ê²©ìžì˜ ìˆ˜ yellowëŠ” 1 ì´ìƒ 2,000,000 ì´í•˜ì¸ ìžì—°ìˆ˜ìž…ë‹ˆë‹¤.
+			ì¹´íŽ«ì˜ ê°€ë¡œ ê¸¸ì´ëŠ” ì„¸ë¡œ ê¸¸ì´ì™€ ê°™ê±°ë‚˜, ì„¸ë¡œ ê¸¸ì´ë³´ë‹¤ ê¹ë‹ˆë‹¤.
 		
-		ÀÔÃâ·Â ¿¹
+		ìž…ì¶œë ¥ ì˜ˆ
 			brown	yellow	return
 			10	       2	[4, 3]
 			8	       1	[3, 3]
@@ -48,8 +48,8 @@ public class BP4 {
 		
 		int[] result = {0,0};
 		
-		for(int i =3; i<=area ; i++) {			// yellow°¡ Á¸ÀçÇÏ¸é ÃÖ¼Ò³ôÀÌ´Â 3ºÎÅÍ ½ÃÀÛÇÔ	
-			if(area % i == 0) {					// ÀüÃ¼ ³ÐÀÌÀÇ ¾à¼ö ±¸ÇÏ±â
+		for(int i =3; i<=area ; i++) {			// yellowê°€ ì¡´ìž¬í•˜ë©´ ìµœì†Œë†’ì´ëŠ” 3ë¶€í„° ì‹œìž‘í•¨	
+			if(area % i == 0) {					// ì „ì²´ ë„“ì´ì˜ ì•½ìˆ˜ êµ¬í•˜ê¸°
 				if(area/i != 1 && area/i != 2) {
 					List<Integer> innerList = new ArrayList<Integer>();
 					innerList.add(i);
@@ -59,7 +59,7 @@ public class BP4 {
 			}
 		}
 		for(int i =1; i<=yellow ; i++) {			
-			if(yellow % i == 0) {				// yellow ³ÐÀÌÀÇ ¾à¼ö ±¸ÇÏ±â
+			if(yellow % i == 0) {				// yellow ë„“ì´ì˜ ì•½ìˆ˜ êµ¬í•˜ê¸°
 				List<Integer> innerList = new ArrayList<Integer>();
 				innerList.add(i);
 				innerList.add(yellow/i);
@@ -70,7 +70,7 @@ public class BP4 {
 		for(int i =0;i<areaList.size();i++) {			
 			for(int j=0; j<yellowList.size(); j++) {
 
-				// ÃÑ ³Êºñ = (¿»·Î¿ì ³Êºñ+2) && ÃÑ ³ôÀÌ = (¿»·Î¿ì ³ôÀÌ+2) 
+				// ì´ ë„ˆë¹„ = (ì˜ë¡œìš° ë„ˆë¹„+2) && ì´ ë†’ì´ = (ì˜ë¡œìš° ë†’ì´+2) 
 				if(areaList.get(i).get(0) == (yellowList.get(j).get(0)+2) && areaList.get(i).get(1) == (yellowList.get(j).get(1)+2)) {
 					result[0] = (int) areaList.get(i).get(0);
 					result[1] = (int) areaList.get(i).get(1);

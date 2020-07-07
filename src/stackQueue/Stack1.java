@@ -18,34 +18,34 @@ public class Stack1 {
 		Queue<Integer> waitQ = new LinkedList<>();
 		Queue<Integer> bridgeQ = new LinkedList<>();
 
-		// ¸ğµç Æ®·°À» queue¿¡ ´ã±â
+		// ëª¨ë“  íŠ¸ëŸ­ì„ queueì— ë‹´ê¸°
 		for(int i: truck_weights) {
 			waitQ.offer(i);
 		}
 
-		// ´Ù¸® ±æÀÌ¸¸Å­  0À¸·Î queue¿¡ ´ã±â
+		// ë‹¤ë¦¬ ê¸¸ì´ë§Œí¼  0ìœ¼ë¡œ queueì— ë‹´ê¸°
 		for(int j=0; j <bridge_length; j++) {
 			bridgeQ.offer(0);
 		}
 
-		//int time = 0;           // ½Ã°£
+		//int time = 0;           // ì‹œê°„
 
 		while(!(waitQ.isEmpty() && bridgeQ.isEmpty())) {
 
-			int totalWeight = 0;    // ´Ù¸®À§¿¡ ÀÖ´Â Â÷ ¹«°ÔÀÇ ÃÑÇÕ
+			int totalWeight = 0;    // ë‹¤ë¦¬ìœ„ì— ìˆëŠ” ì°¨ ë¬´ê²Œì˜ ì´í•©
 
 			if(!bridgeQ.isEmpty()) {				
-				bridgeQ.poll();			// ½Ã°£ÀÌ Áö³ª¸é Â÷´Â 1Ä­¾¿ ÀÌµ¿
+				bridgeQ.poll();			// ì‹œê°„ì´ ì§€ë‚˜ë©´ ì°¨ëŠ” 1ì¹¸ì”© ì´ë™
 			}
 
-			// ÇöÀç ´Ù¸®À§ÀÇ ¹«°Ô È®ÀÎ
+			// í˜„ì¬ ë‹¤ë¦¬ìœ„ì˜ ë¬´ê²Œ í™•ì¸
 			if(!bridgeQ.isEmpty()) {
 				for(int car : bridgeQ) {
 					totalWeight += car;
 				}
 			}
 
-			// ´Ù¸®À§ÀÇ ÃÑ Â÷ÀÇ ÇÕ + ÇöÀç Áö³ª°¥Â÷ÀÇ ¹«°Ô <= ´Ù¸®°¡ ¹öÆ¼´Â ÃÑ ¹«°Ô
+			// ë‹¤ë¦¬ìœ„ì˜ ì´ ì°¨ì˜ í•© + í˜„ì¬ ì§€ë‚˜ê°ˆì°¨ì˜ ë¬´ê²Œ <= ë‹¤ë¦¬ê°€ ë²„í‹°ëŠ” ì´ ë¬´ê²Œ
 			if(!waitQ.isEmpty()) {
 				if(totalWeight + waitQ.peek() <= weight) {
 					bridgeQ.offer(waitQ.poll());

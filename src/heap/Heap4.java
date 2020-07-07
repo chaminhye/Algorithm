@@ -1,9 +1,6 @@
 package heap;
 
-import java.util.Comparator;
-import java.util.LinkedList;
 import java.util.PriorityQueue;
-import java.util.Queue;
 
 public class Heap4 {
 	
@@ -21,7 +18,7 @@ public class Heap4 {
 		for(String str : operations) {
 			number = Integer.parseInt(str.substring(2, str.length()));
 			
-			if(str.contains("I")) {				// I : Å¥¿¡ ÁÖ¾îÁø ¼ıÀÚ¸¦ »ğÀÔ	
+			if(str.contains("I")) {				// I : íì— ì£¼ì–´ì§„ ìˆ«ìë¥¼ ì‚½ì…	
 				queue.offer(number);
 				if( number > max) {
 					temp = min;
@@ -33,13 +30,13 @@ public class Heap4 {
 					//max = temp;
 				}
 				System.out.println("min : "+min+ " / max : " + max+ " / number : " + number);
-			}else if(str.contains("D -1")){		// D -1 : Å¥¿¡¼­ ÃÖ¼Ú°ª »èÁ¦ 
+			}else if(str.contains("D -1")){		// D -1 : íì—ì„œ ìµœì†Ÿê°’ ì‚­ì œ 
 				System.out.println("	min : "+ min);
 				if(!queue.isEmpty()) {
 					queue.remove(min);
 					min = max;
 				}
-			}else if(str.contains("D 1")){								// D 1 : Å¥¿¡¼­ ÃÖ´ñ°ª »èÁ¦
+			}else if(str.contains("D 1")){								// D 1 : íì—ì„œ ìµœëŒ“ê°’ ì‚­ì œ
 				System.out.println("	max : "+ max);
 				if(!queue.isEmpty()) {
 					queue.remove(max);
@@ -47,7 +44,7 @@ public class Heap4 {
 				}
 			}
 			
-			if(queue.isEmpty()) {				// Å¥°¡ ºñ¾î ÀÖ´Â °æ¿ì
+			if(queue.isEmpty()) {				// íê°€ ë¹„ì–´ ìˆëŠ” ê²½ìš°
 				queue.offer(0);
 			}
 		}

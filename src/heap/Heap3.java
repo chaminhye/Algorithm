@@ -10,7 +10,7 @@ public class Heap3 {
 //		int[][] jobs = {{0,3},{1,9},{2,6}};
 		
         PriorityQueue<Job> priorityQueue = new PriorityQueue<>();
-        int nothing = 0; 		// ���ϱ� �ʴ� �ð�
+        int nothing = 0; 		// ÀÏÇÏ±â ¾Ê´Â ½Ã°£
 		for(int i=0; i<jobs.length; i++) {
 			if(i+1 < jobs.length) {
 				if(i + jobs[i][1] < jobs[i+1][0]) {

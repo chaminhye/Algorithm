@@ -31,18 +31,18 @@ public class Stack4 {
 			}
 		}
 		*/
-		int maxIdx = getMaxIdx(priorities);				// Áß¿äµµ ÃÖ´ë°ª ±¸ÇÏ±â
+		int maxIdx = getMaxIdx(priorities);				// ì¤‘ìš”ë„ ìµœëŒ€ê°’ êµ¬í•˜ê¸°
 		
-		for(int i=maxIdx; i<priorities.length; i++) {	// ÃÖ´ë°ªºÎÅÍ Queue¿¡ ´ã±â		
+		for(int i=maxIdx; i<priorities.length; i++) {	// ìµœëŒ€ê°’ë¶€í„° Queueì— ë‹´ê¸°		
 			q.offer(priorities[i]);
 		}
-		for(int i =0; i< maxIdx; i++) {					// ´ë±â¸ñ·Ï¿¡ ¸¶Áö¸·À¸·Î ¹Ğ¸° ¹®¼­ Queue¿¡ ´ã±â
+		for(int i =0; i< maxIdx; i++) {					// ëŒ€ê¸°ëª©ë¡ì— ë§ˆì§€ë§‰ìœ¼ë¡œ ë°€ë¦° ë¬¸ì„œ Queueì— ë‹´ê¸°
 			q.offer(priorities[i]);
 		}
 System.out.println("q : "+q);		
 System.out.println("maxIdx : "+maxIdx);		
 
-		// Áß¿äµµ 1 
+		// ì¤‘ìš”ë„ 1 
 		printArr[0] = q.poll();
 		
 		
@@ -74,12 +74,12 @@ System.out.println("maxIdx : "+maxIdx);
 		int maxNum = arr[0];
 		int maxIdx = 0;
 		for(int i=0; i<arr.length; i ++) {
-			if(arr[i] > maxNum) {			// Áß¿äµµ ÃÖ´ë°ª ±¸ÇÏ±â
+			if(arr[i] > maxNum) {			// ì¤‘ìš”ë„ ìµœëŒ€ê°’ êµ¬í•˜ê¸°
 				//maxNum = priorities[i];
 				maxIdx = i;
 			}
 			/*
-			if(i > maxIdx && maxIdx > 0) {			// ÃÖ´ë°ªºÎÅÍ Queue¿¡ ´ã±â
+			if(i > maxIdx && maxIdx > 0) {			// ìµœëŒ€ê°’ë¶€í„° Queueì— ë‹´ê¸°
 				q.offer(arr[i]);
 			}
 			*/

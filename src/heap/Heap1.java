@@ -15,7 +15,7 @@ public class Heap1 {
 		
 		PriorityQueue<Integer> priorityQueue = new PriorityQueue<>();
 		
-		// ¿ì¼±¼øÀ§Å¥¿¡ scoville ´ã±â
+		// Â¿Ã¬Â¼Â±Â¼Ã¸Ã€Â§Ã…Â¥Â¿Â¡ scoville Â´Ã£Â±Ã¢
 		for(int i : scoville) {
 			priorityQueue.offer(i);
 		}

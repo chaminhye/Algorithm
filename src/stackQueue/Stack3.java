@@ -18,7 +18,7 @@ public class Stack3 {
         List<Integer> list = new ArrayList<Integer>();
         
 
-        // progresses º° ÇÊ¿äÇÑ ÀÛ¾÷ÀÏ¼ö
+     // progresses ë³„ í•„ìš”í•œ ì‘ì—…ì¼ìˆ˜
 		for(int i=0; i< progresses.length; i++) {
 			working = (100 - progresses[i]) ;
 			workingDay[i] = working % speeds[i] == 0? working / speeds[i] : (working / speeds[i]) +1;
@@ -60,4 +60,3 @@ System.out.println(list);
 		
     }
 }
-

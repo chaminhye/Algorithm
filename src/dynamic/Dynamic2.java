@@ -1,6 +1,6 @@
 package dynamic;
 
-public class Dynamic1 {
+public class Dynamic2 {
 
 	static int[] fibo_arr;
 	public static void main(String[] args) {

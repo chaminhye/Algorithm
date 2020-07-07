@@ -5,29 +5,28 @@ import java.util.Map;
 
 public class Greedy3 {
 	/***
-	 * ¹®Á¦ ¼³¸í
-			Á¶ÀÌ½ºÆ½À¸·Î ¾ËÆÄºª ÀÌ¸§À» ¿Ï¼ºÇÏ¼¼¿ä. ¸Ç Ã³À½¿£ A·Î¸¸ ÀÌ·ç¾îÁ® ÀÖ½À´Ï´Ù.
-			ex) ¿Ï¼ºÇØ¾ß ÇÏ´Â ÀÌ¸§ÀÌ ¼¼ ±ÛÀÚ¸é AAA, ³× ±ÛÀÚ¸é AAAA
+	 * ë¬¸ì œ ì„¤ëª…
+			ì¡°ì´ìŠ¤í‹±ìœ¼ë¡œ ì•ŒíŒŒë²³ ì´ë¦„ì„ ì™„ì„±í•˜ì„¸ìš”. ë§¨ ì²˜ìŒì—” Aë¡œë§Œ ì´ë£¨ì–´ì ¸ ìžˆìŠµë‹ˆë‹¤.
+			ex) ì™„ì„±í•´ì•¼ í•˜ëŠ” ì´ë¦„ì´ ì„¸ ê¸€ìžë©´ AAA, ë„¤ ê¸€ìžë©´ AAAA
 		
-			Á¶ÀÌ½ºÆ½À» °¢ ¹æÇâÀ¸·Î ¿òÁ÷ÀÌ¸é ¾Æ·¡¿Í °°½À´Ï´Ù.
+			ì¡°ì´ìŠ¤í‹±ì„ ê° ë°©í–¥ìœ¼ë¡œ ì›€ì§ì´ë©´ ì•„ëž˜ì™€ ê°™ìŠµë‹ˆë‹¤.
 		
-			¡ã - ´ÙÀ½ ¾ËÆÄºª
-			¡å - ÀÌÀü ¾ËÆÄºª (A¿¡¼­ ¾Æ·¡ÂÊÀ¸·Î ÀÌµ¿ÇÏ¸é Z·Î)
-			¢¸ - Ä¿¼­¸¦ ¿ÞÂÊÀ¸·Î ÀÌµ¿ (Ã¹ ¹øÂ° À§Ä¡¿¡¼­ ¿ÞÂÊÀ¸·Î ÀÌµ¿ÇÏ¸é ¸¶Áö¸· ¹®ÀÚ¿¡ Ä¿¼­)
-			¢º - Ä¿¼­¸¦ ¿À¸¥ÂÊÀ¸·Î ÀÌµ¿
-			¿¹¸¦ µé¾î ¾Æ·¡ÀÇ ¹æ¹ýÀ¸·Î JAZ¸¦ ¸¸µé ¼ö ÀÖ½À´Ï´Ù.
+			â–² - ë‹¤ìŒ ì•ŒíŒŒë²³
+			â–¼ - ì´ì „ ì•ŒíŒŒë²³ (Aì—ì„œ ì•„ëž˜ìª½ìœ¼ë¡œ ì´ë™í•˜ë©´ Zë¡œ)
+			â—€ - ì»¤ì„œë¥¼ ì™¼ìª½ìœ¼ë¡œ ì´ë™ (ì²« ë²ˆì§¸ ìœ„ì¹˜ì—ì„œ ì™¼ìª½ìœ¼ë¡œ ì´ë™í•˜ë©´ ë§ˆì§€ë§‰ ë¬¸ìžì— ì»¤ì„œ)
+			â–¶ - ì»¤ì„œë¥¼ ì˜¤ë¥¸ìª½ìœ¼ë¡œ ì´ë™
+			ì˜ˆë¥¼ ë“¤ì–´ ì•„ëž˜ì˜ ë°©ë²•ìœ¼ë¡œ JAZë¥¼ ë§Œë“¤ ìˆ˜ ìžˆìŠµë‹ˆë‹¤.
 		
-			- Ã¹ ¹øÂ° À§Ä¡¿¡¼­ Á¶ÀÌ½ºÆ½À» À§·Î 9¹ø Á¶ÀÛÇÏ¿© J¸¦ ¿Ï¼ºÇÕ´Ï´Ù.
-			- Á¶ÀÌ½ºÆ½À» ¿ÞÂÊÀ¸·Î 1¹ø Á¶ÀÛÇÏ¿© Ä¿¼­¸¦ ¸¶Áö¸· ¹®ÀÚ À§Ä¡·Î ÀÌµ¿½ÃÅµ´Ï´Ù.
-			- ¸¶Áö¸· À§Ä¡¿¡¼­ Á¶ÀÌ½ºÆ½À» ¾Æ·¡·Î 1¹ø Á¶ÀÛÇÏ¿© Z¸¦ ¿Ï¼ºÇÕ´Ï´Ù.
-			µû¶ó¼­ 11¹ø ÀÌµ¿½ÃÄÑ "JAZ"¸¦ ¸¸µé ¼ö ÀÖ°í, ÀÌ¶§°¡ ÃÖ¼Ò ÀÌµ¿ÀÔ´Ï´Ù.
-			¸¸µé°íÀÚ ÇÏ´Â ÀÌ¸§ nameÀÌ ¸Å°³º¯¼ö·Î ÁÖ¾îÁú ¶§, ÀÌ¸§¿¡ ´ëÇØ Á¶ÀÌ½ºÆ½ Á¶ÀÛ È½¼öÀÇ ÃÖ¼Ú°ªÀ» return ÇÏµµ·Ï solution ÇÔ¼ö¸¦ ¸¸µå¼¼¿ä.
+			- ì²« ë²ˆì§¸ ìœ„ì¹˜ì—ì„œ ì¡°ì´ìŠ¤í‹±ì„ ìœ„ë¡œ 9ë²ˆ ì¡°ìž‘í•˜ì—¬ Jë¥¼ ì™„ì„±í•©ë‹ˆë‹¤.
+			- ì¡°ì´ìŠ¤í‹±ì„ ì™¼ìª½ìœ¼ë¡œ 1ë²ˆ ì¡°ìž‘í•˜ì—¬ ì»¤ì„œë¥¼ ë§ˆì§€ë§‰ ë¬¸ìž ìœ„ì¹˜ë¡œ ì´ë™ì‹œí‚µë‹ˆë‹¤.
+			- ë§ˆì§€ë§‰ ìœ„ì¹˜ì—ì„œ ì¡°ì´ìŠ¤í‹±ì„ ì•„ëž˜ë¡œ 1ë²ˆ ì¡°ìž‘í•˜ì—¬ Zë¥¼ ì™„ì„±í•©ë‹ˆë‹¤.
+			ë”°ë¼ì„œ 11ë²ˆ ì´ë™ì‹œì¼œ "JAZ"ë¥¼ ë§Œë“¤ ìˆ˜ ìžˆê³ , ì´ë•Œê°€ ìµœì†Œ ì´ë™ìž…ë‹ˆë‹¤.
+			ë§Œë“¤ê³ ìž í•˜ëŠ” ì´ë¦„ nameì´ ë§¤ê°œë³€ìˆ˜ë¡œ ì£¼ì–´ì§ˆ ë•Œ, ì´ë¦„ì— ëŒ€í•´ ì¡°ì´ìŠ¤í‹± ì¡°ìž‘ íšŸìˆ˜ì˜ ìµœì†Ÿê°’ì„ return í•˜ë„ë¡ solution í•¨ìˆ˜ë¥¼ ë§Œë“œì„¸ìš”.
 		
-		Á¦ÇÑ »çÇ×
-			nameÀº ¾ËÆÄºª ´ë¹®ÀÚ·Î¸¸ ÀÌ·ç¾îÁ® ÀÖ½À´Ï´Ù.
-			nameÀÇ ±æÀÌ´Â 1 ÀÌ»ó 20 ÀÌÇÏÀÔ´Ï´Ù.
-
-		ÀÔÃâ·Â ¿¹
+		ì œí•œ ì‚¬í•­
+			nameì€ ì•ŒíŒŒë²³ ëŒ€ë¬¸ìžë¡œë§Œ ì´ë£¨ì–´ì ¸ ìžˆìŠµë‹ˆë‹¤.
+			nameì˜ ê¸¸ì´ëŠ” 1 ì´ìƒ 20 ì´í•˜ìž…ë‹ˆë‹¤.
+		ìž…ì¶œë ¥ ì˜ˆ
 			name	return
 			JEROEN	 56
 			JAN	     23
@@ -41,29 +40,29 @@ public class Greedy3 {
 		
 		Map<String,Integer> map = new HashMap<String,Integer>();
 		int idx =0;
-		for(char c='A';c<='Z';++c) {					// map¿¡  ABCD , 0123 ÀÎµ¦½º ´ã±â
+		for(char c='A';c<='Z';++c) {					// mapì—  ABCD , 0123 ì¸ë±ìŠ¤ ë‹´ê¸°
 			map.put(Character.toString(c), idx);
 			idx ++;
 		}
 System.out.println(map);	
-		String next, prev = "";							// ´ÙÀ½ ¾ËÆÄºª(¡ã), ÀÌÀü ¾ËÆÄºª(¡å)
+		String next, prev = "";							// ë‹¤ìŒ ì•ŒíŒŒë²³(â–²), ì´ì „ ì•ŒíŒŒë²³(â–¼)
 		int lastIdx = map.size();
-		int midIdx = 12;								// Áß°£ idx
-		for(int i =0;i<nameIdxArr.length;i++) {			// ÁÖ¾îÁø name¿¡ ´ëÇÑ ÀÎµ¦½º Ã£±â
-			int cnt = 0;									// ¿òÁ÷ÀÎ È½¼ö
+		int midIdx = 12;								// ì¤‘ê°„ idx
+		for(int i =0;i<nameIdxArr.length;i++) {			// ì£¼ì–´ì§„ nameì— ëŒ€í•œ ì¸ë±ìŠ¤ ì°¾ê¸°
+			int cnt = 0;									// ì›€ì§ì¸ íšŸìˆ˜
 			nameIdxArr[i] = map.get(Character.toString(name.charAt(i)));
 //			System.out.println(nameIdxArr[i]);
 			if(nameIdxArr[i] != 0) {
-				if(i==0) {								// Ã¹¹øÂ° ±ÛÀÚ
+				if(i==0) {								// ì²«ë²ˆì§¸ ê¸€ìž
 					answerIdxArr[i] = nameIdxArr[i]; 
 				}else {
-					if(nameIdxArr[i] > midIdx) { 		// Z ¹æÇâ±âÁØÀ¸·Î ÀÌÀü ¾ËÆÄºª
+					if(nameIdxArr[i] > midIdx) { 		// Z ë°©í–¥ê¸°ì¤€ìœ¼ë¡œ ì´ì „ ì•ŒíŒŒë²³
 						answerIdxArr[i] = (lastIdx - nameIdxArr[i]) + 1; 
-					}else {								// A ¹æÇâ±âÁØÀ¸·Î ´ÙÀ½ ¾ËÆÄºª
+					}else {								// A ë°©í–¥ê¸°ì¤€ìœ¼ë¡œ ë‹¤ìŒ ì•ŒíŒŒë²³
 						answerIdxArr[i] = nameIdxArr[i] + 1; 
 					}
 				}
-			}else {										// idx = 0 ÀÎ °æ¿ì, ¿òÁ÷ÀÏ ÇÊ¿ä X
+			}else {										// idx = 0 ì¸ ê²½ìš°, ì›€ì§ì¼ í•„ìš” X
 				answerIdxArr[i] = 0; 
 			}
 			
@@ -78,4 +77,3 @@ System.out.println(map);
 	}
 	
 }
-

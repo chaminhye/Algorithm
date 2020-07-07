@@ -11,36 +11,36 @@ import java.util.stream.Collectors;
 public class BP1 {
 
 	/**
-	 * ¹®Á¦ ¼³¸í
-			¼öÆ÷ÀÚ´Â ¼öÇÐÀ» Æ÷±âÇÑ »ç¶÷ÀÇ ÁØ¸»ÀÔ´Ï´Ù. ¼öÆ÷ÀÚ »ïÀÎ¹æÀº ¸ðÀÇ°í»ç¿¡ ¼öÇÐ ¹®Á¦¸¦ ÀüºÎ ÂïÀ¸·Á ÇÕ´Ï´Ù. ¼öÆ÷ÀÚ´Â 1¹ø ¹®Á¦ºÎÅÍ ¸¶Áö¸· ¹®Á¦±îÁö ´ÙÀ½°ú °°ÀÌ Âï½À´Ï´Ù.
+	 * ë¬¸ì œ ì„¤ëª…
+			ìˆ˜í¬ìžëŠ” ìˆ˜í•™ì„ í¬ê¸°í•œ ì‚¬ëžŒì˜ ì¤€ë§ìž…ë‹ˆë‹¤. ìˆ˜í¬ìž ì‚¼ì¸ë°©ì€ ëª¨ì˜ê³ ì‚¬ì— ìˆ˜í•™ ë¬¸ì œë¥¼ ì „ë¶€ ì°ìœ¼ë ¤ í•©ë‹ˆë‹¤. ìˆ˜í¬ìžëŠ” 1ë²ˆ ë¬¸ì œë¶€í„° ë§ˆì§€ë§‰ ë¬¸ì œê¹Œì§€ ë‹¤ìŒê³¼ ê°™ì´ ì°ìŠµë‹ˆë‹¤.
 			
-			1¹ø ¼öÆ÷ÀÚ°¡ Âï´Â ¹æ½Ä: 1, 2, 3, 4, 5, 1, 2, 3, 4, 5, ...
-			2¹ø ¼öÆ÷ÀÚ°¡ Âï´Â ¹æ½Ä: 2, 1, 2, 3, 2, 4, 2, 5, 2, 1, 2, 3, 2, 4, 2, 5, ...
-			3¹ø ¼öÆ÷ÀÚ°¡ Âï´Â ¹æ½Ä: 3, 3, 1, 1, 2, 2, 4, 4, 5, 5, 3, 3, 1, 1, 2, 2, 4, 4, 5, 5, ...
+			1ë²ˆ ìˆ˜í¬ìžê°€ ì°ëŠ” ë°©ì‹: 1, 2, 3, 4, 5, 1, 2, 3, 4, 5, ...
+			2ë²ˆ ìˆ˜í¬ìžê°€ ì°ëŠ” ë°©ì‹: 2, 1, 2, 3, 2, 4, 2, 5, 2, 1, 2, 3, 2, 4, 2, 5, ...
+			3ë²ˆ ìˆ˜í¬ìžê°€ ì°ëŠ” ë°©ì‹: 3, 3, 1, 1, 2, 2, 4, 4, 5, 5, 3, 3, 1, 1, 2, 2, 4, 4, 5, 5, ...
 			
-			1¹ø ¹®Á¦ºÎÅÍ ¸¶Áö¸· ¹®Á¦±îÁöÀÇ Á¤´äÀÌ ¼ø¼­´ë·Î µéÀº ¹è¿­ answers°¡ ÁÖ¾îÁ³À» ¶§, °¡Àå ¸¹Àº ¹®Á¦¸¦ ¸ÂÈù »ç¶÷ÀÌ ´©±¸ÀÎÁö ¹è¿­¿¡ ´ã¾Æ return ÇÏµµ·Ï solution ÇÔ¼ö¸¦ ÀÛ¼ºÇØÁÖ¼¼¿ä.
+			1ë²ˆ ë¬¸ì œë¶€í„° ë§ˆì§€ë§‰ ë¬¸ì œê¹Œì§€ì˜ ì •ë‹µì´ ìˆœì„œëŒ€ë¡œ ë“¤ì€ ë°°ì—´ answersê°€ ì£¼ì–´ì¡Œì„ ë•Œ, ê°€ìž¥ ë§Žì€ ë¬¸ì œë¥¼ ë§žížŒ ì‚¬ëžŒì´ ëˆ„êµ¬ì¸ì§€ ë°°ì—´ì— ë‹´ì•„ return í•˜ë„ë¡ solution í•¨ìˆ˜ë¥¼ ìž‘ì„±í•´ì£¼ì„¸ìš”.
 		
-		Á¦ÇÑ Á¶°Ç
-			½ÃÇèÀº ÃÖ´ë 10,000 ¹®Á¦·Î ±¸¼ºµÇ¾îÀÖ½À´Ï´Ù.
-			¹®Á¦ÀÇ Á¤´äÀº 1, 2, 3, 4, 5Áß ÇÏ³ªÀÔ´Ï´Ù.
-			°¡Àå ³ôÀº Á¡¼ö¸¦ ¹ÞÀº »ç¶÷ÀÌ ¿©·µÀÏ °æ¿ì, returnÇÏ´Â °ªÀ» ¿À¸§Â÷¼ø Á¤·ÄÇØÁÖ¼¼¿ä.
+		ì œí•œ ì¡°ê±´
+			ì‹œí—˜ì€ ìµœëŒ€ 10,000 ë¬¸ì œë¡œ êµ¬ì„±ë˜ì–´ìžˆìŠµë‹ˆë‹¤.
+			ë¬¸ì œì˜ ì •ë‹µì€ 1, 2, 3, 4, 5ì¤‘ í•˜ë‚˜ìž…ë‹ˆë‹¤.
+			ê°€ìž¥ ë†’ì€ ì ìˆ˜ë¥¼ ë°›ì€ ì‚¬ëžŒì´ ì—¬ëŸ¿ì¼ ê²½ìš°, returní•˜ëŠ” ê°’ì„ ì˜¤ë¦„ì°¨ìˆœ ì •ë ¬í•´ì£¼ì„¸ìš”.
 		
-		ÀÔÃâ·Â ¿¹
+		ìž…ì¶œë ¥ ì˜ˆ
 			answers	       return
 			[1,2,3,4,5] 	[1]
 			[1,3,2,4,2]	   [1,2,3]
 		
-		ÀÔÃâ·Â ¿¹ ¼³¸í
-			ÀÔÃâ·Â ¿¹ #1
+		ìž…ì¶œë ¥ ì˜ˆ ì„¤ëª…
+			ìž…ì¶œë ¥ ì˜ˆ #1
 			
-			¼öÆ÷ÀÚ 1Àº ¸ðµç ¹®Á¦¸¦ ¸ÂÇû½À´Ï´Ù.
-			¼öÆ÷ÀÚ 2´Â ¸ðµç ¹®Á¦¸¦ Æ²·È½À´Ï´Ù.
-			¼öÆ÷ÀÚ 3Àº ¸ðµç ¹®Á¦¸¦ Æ²·È½À´Ï´Ù.
-			µû¶ó¼­ °¡Àå ¹®Á¦¸¦ ¸¹ÀÌ ¸ÂÈù »ç¶÷Àº ¼öÆ÷ÀÚ 1ÀÔ´Ï´Ù.
+			ìˆ˜í¬ìž 1ì€ ëª¨ë“  ë¬¸ì œë¥¼ ë§ží˜”ìŠµë‹ˆë‹¤.
+			ìˆ˜í¬ìž 2ëŠ” ëª¨ë“  ë¬¸ì œë¥¼ í‹€ë ¸ìŠµë‹ˆë‹¤.
+			ìˆ˜í¬ìž 3ì€ ëª¨ë“  ë¬¸ì œë¥¼ í‹€ë ¸ìŠµë‹ˆë‹¤.
+			ë”°ë¼ì„œ ê°€ìž¥ ë¬¸ì œë¥¼ ë§Žì´ ë§žížŒ ì‚¬ëžŒì€ ìˆ˜í¬ìž 1ìž…ë‹ˆë‹¤.
 			
-			ÀÔÃâ·Â ¿¹ #2
+			ìž…ì¶œë ¥ ì˜ˆ #2
 			
-			¸ðµç »ç¶÷ÀÌ 2¹®Á¦¾¿À» ¸ÂÃè½À´Ï´Ù.
+			ëª¨ë“  ì‚¬ëžŒì´ 2ë¬¸ì œì”©ì„ ë§žì·„ìŠµë‹ˆë‹¤.
 	 * */
 	static public void main(String args[]) {
 		int[] answers = {3, 3, 1, 1, 2, 2, 4, 4, 5};
@@ -68,11 +68,11 @@ public class BP1 {
 			}
 		}
 		
-		int max = 0;					// °¡Àå ¸¹ÀÌ ¸ÂÃá ¹®Á¦ °³¼ö
+		int max = 0;					// ê°€ìž¥ ë§Žì´ ë§žì¶˜ ë¬¸ì œ ê°œìˆ˜
 		
 		List<Map.Entry<Integer, Integer>> resultMap =  answerMap.entrySet().stream()
 		        .sorted(Map.Entry.comparingByValue(Collections.reverseOrder()))
-		        .collect(Collectors.toList());			// ¹®Á¦ °³¼ö ³»¸²Â÷¼øÀ¸·Î Á¤·Ä
+		        .collect(Collectors.toList());			// ë¬¸ì œ ê°œìˆ˜ ë‚´ë¦¼ì°¨ìˆœìœ¼ë¡œ ì •ë ¬
 		
 		max = resultMap.get(0).getValue();
 		System.out.println("max : "+max);
@@ -85,7 +85,7 @@ public class BP1 {
 		
 		int[] resultArr = new int[answerlist.size() ==0 ? 3:answerlist.size()];
 
-		if(answerlist.size() == 0) {		// ¸ÂÈù »ç¶÷ÀÌ ¾ø´Â °æ¿ì
+		if(answerlist.size() == 0) {		// ë§žížŒ ì‚¬ëžŒì´ ì—†ëŠ” ê²½ìš°
 			resultArr[0] = 1;
 			resultArr[1] = 2;
 			resultArr[2] = 3;
