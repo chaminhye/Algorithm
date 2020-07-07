@@ -3,7 +3,7 @@ package bruteForce;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BP3 {
+public class BF3 {
 	
 	/**
 	 * 문제 설명
