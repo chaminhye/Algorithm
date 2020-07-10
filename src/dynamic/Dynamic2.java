@@ -24,14 +24,14 @@ public class Dynamic2 {
 	public static void main(String[] args) {
 		int N = 5;
 		fibo_arr = new int[N+1];
-		fibo(5);
+		//fibo(5);
 //		System.out.println(fibo_arr[3]);
 //		System.out.println(fibo_arr[4]);
 //		System.out.println(fibo_arr[5]);
 		long answer = (fibo_arr[4] + fibo_arr[5]) * 2;
-		System.out.println(answer);
+		System.out.println(fibo(6));
 	}
-	
+/*	
 	static void fibo(int num) {
 		fibo_arr[0] = 1;
 		fibo_arr[1] = 1;
@@ -41,4 +41,20 @@ public class Dynamic2 {
 		}
 //		return fibo(num-1) + fibo(num-2);
 	}
+	*/
+	static int fibo(int num) {
+		int first = 1;
+        int second = 1;
+        
+        int answer = 0;
+
+		for(int i=1; i<num;i++) {
+			answer = first + second;
+            first = second;
+            second = answer;
+		}
+        answer = (first+second) * 2;
+        return answer;
+	}
+	
 }
