@@ -1,4 +1,4 @@
-package stackQueue;
+package programmers.stackQueue;
 
 public class Stack6 {
 
