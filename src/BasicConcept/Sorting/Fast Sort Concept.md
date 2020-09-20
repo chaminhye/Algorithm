@@ -292,7 +292,7 @@ partition(A, p, r) {
 
 ### Quick sort Algorithm
 
-```
+```java
 public class QuickSort {
     static int partition(int[] array,int start, int end) {
         int pivot = array[(start+end)/2];
@@ -606,7 +606,7 @@ HEAPSORT(A)
 
 ### Heap Sort Algorithm
 
-```
+```java
 private void solve() {
     int[] array = { 230, 10, 60, 550, 40, 220, 20 };
  
@@ -659,6 +659,8 @@ public static void swap(int[] array, int a, int b) {
 ```
 
 유튜브 링크 : https://www.youtube.com/watch?v=iyl9bfp_8ag
+
+
 
 
 
