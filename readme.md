@@ -19,5 +19,6 @@
 - **O(n)**
 
   - **Radix sort**
+  - **Counting sort**
 
 ## 해시
