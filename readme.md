@@ -4,20 +4,21 @@
 
 ## 정렬
 
-- simple, slow
+- **simple, slow**
 
-  - Bubble sort
-  - Insertion sort
-  - Selection sort
+  - **Bubble sort** : O(n^2)
+  - **Insertion sort** : worst - O(n^2) / best : O(n)
+  - **Selection sort** : O(n^2)
 
-- fast
+- **fast(resursion)**
 
-  - Quick sort
-  - Merge sort
-  - Heap sort
+  - **Quick sort** : worst - O(n^2), avg - O(n**log**n)
+  - **Merge sort** : O(n**log**n)
+  - **Heap sort**  : O(n**log**n)
 
-- O(n)
+- **O(n)**
 
-  - Radix sort
+  - **Radix sort**
+  - **Counting sort**
 
 ## 해시
