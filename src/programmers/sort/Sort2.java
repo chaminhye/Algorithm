@@ -1,5 +1,8 @@
 package programmers.sort;
 
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
 
 /*
  * 문제 설명
@@ -19,63 +22,35 @@ package programmers.sort;
 		[6, 10, 2]	         6210
 		[3, 30, 34, 5, 9]	9534330
 		
-	순열 참고  : https://bcp0109.tistory.com/14
 */
 public class Sort2 {
 
 	public static void main(String args[]) {
 		
-		int[] numbers = {6 ,10,2};
-		int n = numbers.length;
+		int[] numbers = {3, 30, 34, 5, 9};
 		
-		permutation(numbers,  0 , n, n);
+		// String 배열로 변경
+		String[] nums = new String[numbers.length];
+		for(int i=0; i<numbers.length ; i++) {
+			nums[i] = numbers[i]+"";
+		}
 		
+		// s2+s1 > s1+s2 (사전적 순서가 큰 경우) s1 , s2 정렬순서로 
+		Arrays.sort(nums, new Comparator<String>() {
+			public int compare(String s1, String s2) {
+				System.out.print("s2 + s1 :" + (s2+s1));
+				System.out.println(" - s1 + s2 :" + (s1+s2));
+				return (s2+s1).compareTo(s1+s2);
+			}
+		});
+		
+		String ans = "";
+		for(int i=0;i<numbers.length;i++) {
+			System.out.println(nums[i]);
+			ans += nums[i];
+		}
+		
+		System.out.println(ans.charAt(0) == '0' ? "0" : ans);
 	}
 	
-	
-	// 순서 없이 n 개중에서 r 개를 뽑는 경우
-	// 사용 예시: permutation(arr, 0, n, r);
-    static void permutation(int[] arr, int depth, int n, int r) {
-        if (depth == r) {
-            print(arr, r);
-            return;
-        }
-
-        for (int i = depth; i < n; i++) {
-            swap(arr, depth, i);
-            permutation(arr, depth + 1, n, r);
-            swap(arr, depth, i);
-        }
-    }
-    
-    static void swap(int[] arr, int depth, int i) {
-        int temp = arr[depth];
-        arr[depth] = arr[i];
-        arr[i] = temp;
-    }
-    
-    // 배열 출력
-    static void print(int[] arr, int r) {
-    	String str = "";
-    	int number = 0;
-    	int max = 0;
-    	
-    	for(int i: arr) {
-    		str += i;
-    		number = Integer.parseInt(str);
-    		System.out.println("num : "+i+" - "+number);
-    		if(number > max) {
-    			max = number;
-    		}
-    	}
-    	
-    	System.out.println("max : "+max );
-    	
-		/*
-		 * System.out.println("# : "+result[0]);
-		 * 
-		 * for (int i = 0; i < r; i++) { System.out.print(arr[i] + " "); result[i] +=
-		 * arr[i] + " "; } System.out.println();
-		 */
-    }
 }
