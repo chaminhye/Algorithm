@@ -1,7 +1,6 @@
 package programmers.sort;
 
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.Comparator;
 
 /*
@@ -35,7 +34,16 @@ public class Sort2 {
 			nums[i] = numbers[i]+"";
 		}
 		
-		// s2+s1 > s1+s2 (사전적 순서가 큰 경우) s1 , s2 정렬순서로 
+		/**
+		 *  String s1, s2
+		 *  
+		 *  s1 == s2 : 0
+		 *  s1 > s2  : 1
+		 *  s1 < s2  : -1
+		 * 
+		 *  s2+s1 > s1+s2 (사전적 순서가 큰 경우) s1 , s2 정렬순서로 
+		 * */
+		
 		Arrays.sort(nums, new Comparator<String>() {
 			public int compare(String s1, String s2) {
 				System.out.print("s2 + s1 :" + (s2+s1));
