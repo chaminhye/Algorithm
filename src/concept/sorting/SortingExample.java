@@ -1,4 +1,4 @@
-package BasicConcept.sorting;
+package concept.sorting;
 
 import java.util.ArrayList;
 import java.util.Arrays;
