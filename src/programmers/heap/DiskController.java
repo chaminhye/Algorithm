@@ -53,7 +53,7 @@ import java.util.Queue;
 		2ms 시점에 6ms 걸리는 작업 요청이 들어옵니다.
  */
 
-public class Heap2 {
+public class DiskController {
 	public static int solution(int[][] jobs) {
 		int answer = 0;
 

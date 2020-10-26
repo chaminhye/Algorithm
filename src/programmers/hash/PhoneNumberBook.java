@@ -1,6 +1,6 @@
 package programmers.hash;
 
-public class Hash2 {
+public class PhoneNumberBook {
 
 	
 /**

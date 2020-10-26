@@ -2,7 +2,7 @@ package programmers.hash;
 
 import java.util.HashMap;
 
-public class Hash3 {
+public class Camouflage {
 
 /**
  * 

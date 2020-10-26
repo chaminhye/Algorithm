@@ -30,7 +30,7 @@ import java.util.PriorityQueue;
 		7,5,-5를 삽입 후 최솟값을 삭제합니다. 최대값 7, 최소값 5를 반환합니다.
  * */
 
-public class Heap3 {
+public class DoublePriorityQueue {
 	
 	public static int[] solution(String[] operations) {
 		int[] answer = new int[2];
