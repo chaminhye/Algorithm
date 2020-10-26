@@ -3,7 +3,7 @@ package programmers.bruteForce;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BF3 {
+public class UnknownBF {
 	
 	/**
 	 * 臾몄젣 �꽕紐�
