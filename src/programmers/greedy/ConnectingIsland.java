@@ -1,6 +1,6 @@
 package programmers.greedy;
 
-public class Greedy5 {
+public class ConnectingIsland {
 
 	/**
 	 * 문제 설명

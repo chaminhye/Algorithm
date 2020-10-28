@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class Greedy4 {
+public class Lifeboat {
 	/**
 	 * 문제 설명
 			무인도에 갇힌 사람들을 구명보트를 이용하여 구출하려고 합니다. 구명보트는 작아서 한 번에 최대 2명씩 밖에 탈 수 없고, 무게 제한도 있습니다.
@@ -27,35 +27,29 @@ public class Greedy4 {
 			[70, 80, 50]	    100	      3
 	 * */
 	static public void main(String args[]) {
-		int[] people = {40, 40, 40};
-		int limit = 120;
-//		int[] people = {70, 50, 80, 50};
-	//	int limit = 100;
-		int totalWeight = 0;
-		int answer = people.length;
-
+//		int[] people = {40, 40, 40};
+//		int limit = 120;
+		int[] people = {70, 50, 80, 50};
+		int limit = 100;
+		
+		System.out.println(solution(people, limit));
+	}
+	
+	public static int solution(int[] people, int limit) {
+		int answer =0 ;
+		
 		// 무게순으로 정렬
 		Arrays.sort(people);
-		List<Integer> list = Arrays.stream(people).boxed().collect(Collectors.toList());
-
-		System.out.println("##### list : "+list);			
-		int minIdx = 0;
-		for(int i=list.size()-1; i >= 0; i--) {			// 가장 가벼운 사람 + 가장 무거운 사람 조합으로 동승 여부 체크
-System.out.println("##### : "+list.get(i));			
-			if(list.get(minIdx) != 1 && list.get(minIdx) != 2) {
-				if(list.get(i)+list.get(minIdx) <= limit) {			// 보트에 같이 탈 수 있는 경우
-					list.set(i, 2);					// 보트 탑승 하면, set 0
-					list.set(minIdx, 2);
-					minIdx ++;			
-				}else {												// 보트에 같이 탈 수 없는 경우
-					list.set(i, 1);
-				}
-			}
-						
-		}
-		System.out.println("list  : "+list.get(0));
-		System.out.println("list  : "+list.get(1));
-		System.out.println("list  : "+list.get(2));
 		
+		int min =0;
+		
+		// 가장 가벼운사람 + 가장 무거운 사람이 같이 탈수 있도록
+		for(int max =people.length-1;  min <= max ; max--) {
+			if(people[min] + people[max] <= limit) {
+				min ++;		// 가장 가벼운 사람 탑승완료 했으므로, 그 다음 가벼운 사람으로
+			}
+			answer++;
+		}
+		return answer;
 	}
 }

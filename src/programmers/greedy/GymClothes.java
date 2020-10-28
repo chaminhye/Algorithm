@@ -2,8 +2,10 @@ package programmers.greedy;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.PriorityQueue;
+import java.util.Queue;
 
-public class Greedy1 {
+public class GymClothes {
 	/**
 	 *  문제 설명
 			점심시간에 도둑이 들어, 일부 학생이 체육복을 도난당했습니다. 다행히 여벌 체육복이 있는 학생이 이들에게 체육복을 빌려주려 합니다. 학생들의 번호는 체격 순으로 매겨져 있어, 바로 앞번호의 학생이나 바로 뒷번호의 학생에게만 체육복을 빌려줄 수 있습니다. 예를 들어, 4번 학생은 3번 학생이나 5번 학생에게만 체육복을 빌려줄 수 있습니다. 체육복이 없으면 수업을 들을 수 없기 때문에 체육복을 적절히 빌려 최대한 많은 학생이 체육수업을 들어야 합니다.
@@ -30,24 +32,58 @@ public class Greedy1 {
 			예제 #2
 			3번 학생이 2번 학생이나 4번 학생에게 체육복을 빌려주면 학생 4명이 체육수업을 들을 수 있습니다.
 	 * */
+	
 	public static void main(String args[]) {
-		int n = 5;
-		int[] lost = {2,4};
-		int[] reserve = {1,3,5};
+		int n = 6;
+		int[] lost = {1,2,3};
+		int[] reserve = {4,5,6};
 		
-//		List<Integer> lostList = new ArrayList<Integer>(Arrays.asList(lost));
-		List<Integer> reserveList = new ArrayList<>();
-		List<Integer> studentList = new ArrayList<>();
-		for(int i=1; i<= n; i++) {
-			studentList.add(i);
+		System.out.println(solution(n, lost, reserve));
+	}
+	
+	public static int solution(int n, int[] lost, int[] reserve) {
+		int result =0 ;
+		
+		// 전체학생 (※ int 배열은 선언없이 초기화시, 모든 원소가 0으로 셋팅됨)
+		int[] students = new int[n];
+		
+		// 전체학생 1로 초기화 
+		for(int i=0; i<n; i++) {
+			students[i] = 1; 
 		}
-
+		
+		// 도난된 학생 -1
 		for(int i=0; i<lost.length; i++) {
-			for(int j=0; j<reserve.length;j++) {
-				if(lost[i] == reserve[j] +1 || lost[i] == reserve[j] -1) {
-					
+			students[lost[i]-1] -= 1; // students[lost[i-1]]-1;
+		}
+		
+		// 여벌 옷 가진 학생 +1 (여벌옷을 가진 학생이 도둑맞은 경우 처리됨)
+		for(int i=0; i<reserve.length; i++) {
+			students[reserve[i]-1] += 1; // students[lost[i-1]]+1;
+		}
+		
+		
+		// 여벌의 옷잉 있는 학생 -> 도난당한 학생에게 주기
+		for(int i=0; i<n; i++) {
+			// 여벌있는 경우
+			if(students[i] > 1) {
+				// 
+				if(i > 0 && students[i -1] == 0) {				// 앞번호에게 전달 (n-1 학생의 경우 n번째를 가져오기 위함)
+					students[i] = 1;
+					students[i-1] = 1;
+				}else if(i+1 < n && students[i+1] == 0){		// 뒷번호에게 전달 (n 학생의 경우 n-1번째를 가져오기 위함)
+					students[i] = 1;
+					students[i+1] = 1;
 				}
 			}
 		}
+		
+		for(int i:students) {
+			if(i > 0) {
+				result+= 1;
+			}
+		}
+		
+		return result;
 	}
 }

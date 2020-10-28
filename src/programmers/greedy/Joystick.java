@@ -3,7 +3,7 @@ package programmers.greedy;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Greedy3 {
+public class Joystick {
 	/***
 	 * 문제 설명
 			조이스틱으로 알파벳 이름을 완성하세요. 맨 처음엔 A로만 이루어져 있습니다.
@@ -26,54 +26,55 @@ public class Greedy3 {
 		제한 사항
 			name은 알파벳 대문자로만 이루어져 있습니다.
 			name의 길이는 1 이상 20 이하입니다.
+			
 		입출력 예
 			name	return
 			JEROEN	 56
 			JAN	     23
+		
+		문제풀이 참고 https://keepgoing0328.tistory.com/71
 	*/
 	static public void main(String args[]) {
 		String name = "JEROEN";
-		int answer = 0;
-		
-		int[] nameIdxArr = new int[name.length()];
-		int[] answerIdxArr = new int[name.length()];
-		
-		Map<String,Integer> map = new HashMap<String,Integer>();
-		int idx =0;
-		for(char c='A';c<='Z';++c) {					// map에  ABCD , 0123 인덱스 담기
-			map.put(Character.toString(c), idx);
-			idx ++;
-		}
-System.out.println(map);	
-		String next, prev = "";							// 다음 알파벳(▲), 이전 알파벳(▼)
-		int lastIdx = map.size();
-		int midIdx = 12;								// 중간 idx
-		for(int i =0;i<nameIdxArr.length;i++) {			// 주어진 name에 대한 인덱스 찾기
-			int cnt = 0;									// 움직인 횟수
-			nameIdxArr[i] = map.get(Character.toString(name.charAt(i)));
-//			System.out.println(nameIdxArr[i]);
-			if(nameIdxArr[i] != 0) {
-				if(i==0) {								// 첫번째 글자
-					answerIdxArr[i] = nameIdxArr[i]; 
-				}else {
-					if(nameIdxArr[i] > midIdx) { 		// Z 방향기준으로 이전 알파벳
-						answerIdxArr[i] = (lastIdx - nameIdxArr[i]) + 1; 
-					}else {								// A 방향기준으로 다음 알파벳
-						answerIdxArr[i] = nameIdxArr[i] + 1; 
-					}
-				}
-			}else {										// idx = 0 인 경우, 움직일 필요 X
-				answerIdxArr[i] = 0; 
-			}
-			
-			
-		}
-		
-		for(int i=0; i<answerIdxArr.length; i++) {
-			answer += answerIdxArr[i];
-		}
 
-		System.out.println(answer);
+		System.out.println(solution(name));
+	}
+	
+	public static int solution(String name) {
+		int answer =0 ;
+		
+		// * Key Point ->>  위/아래 , 좌/우를 분리하여 접근
+		// 위, 아래 최소이동
+		for(int i=0; i <name.length(); i++) {
+			if(name.charAt(i) != 'A') {
+				int up = name.charAt(i) - 'A';
+				int down = 1 + 'Z' -name.charAt(i);
+				answer += (up < down) ? up : down;
+//				System.out.println("answer :"+answer);
+			}
+		}
+		
+		// 무조건 왼->오른쪽으로 가는경우 계산
+		int minMove = name.length() -1;
+
+		// A가 아닌 모든 문자를 돌릴수 있는 최소 좌우이동
+		// 모든 오->왼 역으로 돌아가는 경우  계산
+		for(int i=0; i<name.length(); i++) {
+			int next = i+1;
+			
+			// 첫번째 문자
+			while(next < name.length() && name.charAt(next) == 'A'){
+				next++;
+			}
+//			System.out.println("next : "+next);
+			
+			// 역으로 움직이는 경우 계산하므로 i *2 를 계산해줌
+			int move = (2 * i) + name.length() - next;
+//			System.out.println("move : "+move);		
+			minMove = Math.min(move, minMove);
+		}
+		
+		return answer + minMove;
 	}
 	
 }

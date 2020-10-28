@@ -1,6 +1,6 @@
 package programmers.greedy;
 
-public class Greedy6 {
+public class EnforcementCamera {
 
 	/**
 	 * 문제 설명
