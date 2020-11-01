@@ -33,7 +33,7 @@ import java.util.List;
 		[ICN, SFO, ATL, ICN, ATL, SFO] 순으로 방문할 수도 있지만 [ICN, ATL, ICN, SFO, ATL, SFO] 가 알파벳 순으로 앞섭니다.
 	
 	문제풀이 참고
-		https://dailyheumsi.tistory.com/22
+		https://geehye.github.io/programmers-dfs-bfs-04/#
 		
 		DFS 이용
  * 
