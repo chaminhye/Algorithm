@@ -3,7 +3,7 @@ package programmers.stackQueue;
 import java.util.Arrays;
 import java.util.Stack;
 
-public class Stack2 {
+public class UnknownExcercise {
 	public static void main(String args[]) {
 		int[] heights = {1,5,3,6,7,6,5};
 		int[] result = new int[heights.length];
