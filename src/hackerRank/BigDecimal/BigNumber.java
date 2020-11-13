@@ -1,36 +1,34 @@
 package hackerRank.BigDecimal;
 
-import java.io.*;
-import java.math.*;
-import java.security.*;
-import java.text.*;
+import java.math.BigDecimal;
 import java.util.*;
-import java.util.concurrent.*;
-import java.util.regex.*;
 
-public class BigNumber {
+class BigNumber{
 
-
-
-    private static final Scanner scanner = new Scanner(System.in);
-
-    public static void main(String[] args) {
-        String n = scanner.nextLine();
-
-        scanner.close();
-        
-        BigInteger b = new BigInteger(n);
-        Boolean b1,b2,b3;
-        b1 = b.isProbablePrime(-1);
-        b2 = b.isProbablePrime(0);
-        b3 = b.isProbablePrime(1);
-        
-        if(b1 == true && b2 == true && b3 == true){
-            System.out.println("prime");
+	public static void main(String []args){
+        //Input
+        Scanner sc= new Scanner(System.in);
+        int n=sc.nextInt();
+        String []s=new String[n+2];
+        for(int i=0;i<n;i++){
+            s[i]=sc.next();
         }
-        else{
-            System.out.println("not prime");
+        sc.close();
+
+        //Write your code here
+        Arrays.sort(s, 0, n, new Comparator<Object>() {
+            public int compare(Object a1, Object a2) {
+                BigDecimal bigDec1 = new BigDecimal((String) a1);
+                BigDecimal bigDec2 = new BigDecimal((String) a2);
+                return bigDec2.compareTo(bigDec1);
+            }
+        });
+
+
+        //Output
+        for(int i=0;i<n;i++)
+        {
+            System.out.println(s[i]);
         }
     }
-    
 }
