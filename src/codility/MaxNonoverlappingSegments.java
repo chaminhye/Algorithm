@@ -1,5 +1,8 @@
 package codility;
 
+/**
+ * Lesson16 - Greedy algorithms
+ */
 public class MaxNonoverlappingSegments {
 
 	public static void main(String[] args) {

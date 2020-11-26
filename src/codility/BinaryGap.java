@@ -1,5 +1,8 @@
 package codility;
 
+/**
+ * Lesson1 - Iterations
+ */
 public class BinaryGap {
 	static public void main(String args[]) {
 //		int N = 33;

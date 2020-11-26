@@ -1,5 +1,9 @@
 package codility;
 
+
+/**
+ * Lesson2 - Arrays
+ */
 public class CycleRotation {
 	static public void main(String args[]) {
 //		int[] A = {-3,-80, 90, 7, 7, 1, 2, -9, 6, 3};

@@ -3,6 +3,10 @@ package codility;
 import java.util.LinkedList;
 import java.util.Queue;
 
+
+/**
+ * Lesson16 - Greedy algorithms
+ */
 public class TieRopes {
 
 	public static void main(String[] args) {

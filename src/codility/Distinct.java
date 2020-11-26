@@ -2,6 +2,9 @@ package codility;
 
 import java.util.TreeSet;
 
+/**
+ * Lesson6 - Sorting
+ */
 public class Distinct {
 
 	public static void main(String[] args) {
