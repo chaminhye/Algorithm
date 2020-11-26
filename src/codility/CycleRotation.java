@@ -1,6 +1,6 @@
 package codility;
 
-public class cycleRotation {
+public class CycleRotation {
 	static public void main(String args[]) {
 //		int[] A = {-3,-80, 90, 7, 7, 1, 2, -9, 6, 3};
 //		           0   1    2  3  4  5  6  7   8  9

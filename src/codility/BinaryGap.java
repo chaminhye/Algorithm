@@ -1,6 +1,6 @@
 package codility;
 
-public class binaryGap {
+public class BinaryGap {
 	static public void main(String args[]) {
 //		int N = 33;
 		int N = 1041;
