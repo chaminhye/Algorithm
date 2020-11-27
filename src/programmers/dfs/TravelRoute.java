@@ -49,51 +49,59 @@ public class TravelRoute {
 		String[][] tickets = {{"ICN", "SFO"}, {"ICN", "ATL"}, {"SFO", "ATL"}, {"ATL", "ICN"}, {"ATL","SFO"}};
 //		String[][] tickets = {{"ICN","JFK"}, {"HND","IAD"}, {"JFK","HND"}};
 		String[] arr = solution(tickets);
-		for(int i=0;i<arr.length;i++) {
-			
-			System.out.println(arr[i]);
-		}
+//		for(int i=0;i<arr.length;i++) {
+//			
+//			System.out.println(arr[i]);
+//		}
 		
 	}
 	
 	public static String[] solution(String[][] tickets) {
         visited = new boolean[tickets.length];
 		
+        // 일단 갈 수 있는 모든 경로를  dfs로 탐색
 		for(int i = 0 ; i < tickets.length; i++) {
-			
 			String departure = tickets[i][0];
-			String destination = tickets[i][1];
+			String arrival = tickets[i][1];
 			
 			if(departure.equals("ICN")) {
 				visited[i] = true;
 				route = departure + ",";
-				dfs(tickets, destination, 1);
+				dfs(tickets, arrival, 1);
 				visited[i] = false;
 			}
 		}
+//		for(int i =0;i<list.size();i++) {
+//			System.out.print(list.get(i)+ " ");
+//		}
 		
+		// 가능한 여행경로 오름차순 정렬
 		Collections.sort(list);
+		
+//		System.out.println();
+//		for(int i =0;i<list.size();i++) {
+//			System.out.print(list.get(i)+" ");
+//		}
 		String[] answer = list.get(0).split(",");
 		return answer;
 	}
 	
-	public static void dfs(String[][] tickets, String end, int count) {
+	public static void dfs(String[][] tickets, String departure, int count) {
+		System.out.println(route);
+		route += departure + ",";
 		
-		route += end + ",";
-		
-		if(count==tickets.length) {				// 모든 여행지를 다 탐색한 경우
+		if(count == tickets.length) {			// 모든 여행지를 다 탐색한 경우
 			list.add(route);
-//            System.out.print(route);
 			return;
 		}
 		
 		for(int i = 0 ; i < tickets.length ; i++) {
 			String depart = tickets[i][0];		// 출발
-			String desti = tickets[i][1];		// 도착
+			String arrival = tickets[i][1];		// 도착
 			
-			if(end.equals(depart) && !visited[i]) {
+			if(departure.equals(depart) && !visited[i]) {
 				visited[i] = true;
-				dfs(tickets, desti, count+1);
+				dfs(tickets, arrival, count+1);
 				visited[i] = false;
 				route = route.substring(0, route.length()-4);
 			}

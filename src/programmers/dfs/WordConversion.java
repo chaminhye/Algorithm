@@ -49,10 +49,9 @@ public class WordConversion {
 	}
 
 	public static void dfs(String word, String target, int count, String[] words) {
-//		System.out.println("dfs");		
 		// 현재 단어와 target이 같으면 return
 		if(word.equals(target)) {
-			answer = (answer > count) ? count : answer;
+			answer = Math.min(answer , count);
 			return;
 		}
 

@@ -34,7 +34,7 @@ public class Network {
 	
 	public static int solution(int n, int[][] computers) {
 		int answer = 0;
-		visited = new boolean[n][n];		// false로 초기화
+		visited = new boolean[n][n];		// false로 초기화, 인접행렬로 접근
 		
 		for(int i=0; i<n; i++) {
 			// 방문하지 않은 노드가 있다면, dfs 호출과 동시에 네트워크 수 +1 증가
@@ -48,8 +48,10 @@ public class Network {
 	}
 	
 	public static void dfs(int start, int n, int[][] computers) {
-//		System.out.println("dfs "+ start +" / "+n);
+
 		for(int i=0;i<n;i++) {
+			// 조건 1. computers[][] == 1
+			// 조건 2. 방문하지 않은 노드
 			if(computers[start][i] == 1 && !visited[start][i]) {
 				visited[start][i] = visited[i][start] = true;
 //				System.out.println("		visited["+start+"]["+i+"] : "+visited[start][i]);
