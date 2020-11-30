@@ -1,4 +1,4 @@
-package codility;
+package codility.greedy;
 
 import java.util.LinkedList;
 import java.util.Queue;

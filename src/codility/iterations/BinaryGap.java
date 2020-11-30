@@ -1,4 +1,4 @@
-package codility;
+package codility.iterations;
 
 /**
  * Lesson1 - Iterations

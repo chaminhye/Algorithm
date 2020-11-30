@@ -1,4 +1,4 @@
-package codility;
+package codility.greedy;
 
 /**
  * Lesson16 - Greedy algorithms
