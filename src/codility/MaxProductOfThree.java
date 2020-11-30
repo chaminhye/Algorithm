@@ -15,7 +15,6 @@ public class MaxProductOfThree {
 		solution(A);
 	}
 	
-	//[TODO] 효율성 0점임....
 	public static int solution(int[] A) {
 		int ans = Integer.MIN_VALUE;
 		int len = A.length;
