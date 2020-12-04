@@ -26,61 +26,70 @@ package programmers.dynamic;
 		
 		★★ 동적계획법 Point
 		  -> 중복계산을 피해라
-		 
- * */
+	  
+  	요약 
+  		int[][] dp 배열을 이용하여 거처간 합을 저장한다.
+  		아래의 두가지 식으로, 계산을 진행
+  		1. dp[i][0] = dp[i-1][0] + triangle[i][0];		-> dp[i][0] 0번째 열은 모두 계산을 할 필요가 없다. 제외해도 무방
+		2. 우선적으로 초기화 진행 dp[i][i] = dp[i-1][i-1] + triangle[i][i];
+			2-1. 어떤 값이 더 큰지 비교하여 계산
+			     dp[i][j] = Math.max(dp[i-1][j-1] + triangle[i-1][j]) + triangle[i][j];
+			
+*/
+
 public class IntegerTriangle {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		int[][] triangle = {{7},{3,8},{8,1,0},{2,7,4,4},{4,5,2,6,5}};
-		solution(triangle);
+		int ans = solution(triangle);
+        System.out.println(ans);
+    	// 완전탐색 풀이법        
+//		int answer = dfs(triangle,0,0);
+//        System.out.println(answer);
 	}
 
-	public static boolean[][] visited;
-	public static int sum = 0;
-	
+	// DP 풀이법
     public static int solution(int[][] triangle) {
-        int answer = 0;
+        // 길이
         int len = triangle.length;
-
-        // 1. 초기화
         int[][] dp = new int[len][len];
-        dp[0][0] = triangle[0][0];		// 최상위 노드
-        for(int i=1;i<len;i++) {
-        	dp[i][0] = dp[i-1][0] + triangle[i][0];
-        	dp[i][i] = dp[i-1][i-1] + triangle[i][i];
+        
+        // 무조건 최상위 노드로 설정
+        dp[0][0] = triangle[0][0];
+        
+        // 1. 초기화
+        // 우선 dp[i][i] =  dp[i-1][i-1] + dp[i][i]으로만 초기화
+        for(int i=1;i<len;i++){
+            dp[i][0] = dp[i-1][0] + triangle[i][0];
+            dp[i][i] = dp[i-1][i-1] + triangle[i][i];
         }
         
-        //2. 동적계획법
-        for(int i=2;i<len;i++) {
-        	for(int j=1;j<i;j++) {
-        		dp[i][j] = Math.max(dp[i-1][j-1],  dp[i-1][j]) + triangle[i][j];
-//        		System.out.print("dp["+i+"]["+j+"] : "+dp[i][j]+" ");
-        	}
-//        	System.out.println();
+        // 2. 동적계획법(선택이 가능한 2depth 부터 시작)
+        // dp[i][0]은 변하지 않음,
+        // 둘중에 더 큰 값을 선택하는 과정 dp[i-1][j-1] , dp[i-1][j]
+        for(int i=2;i<len;i++){
+            for(int j=1;j<i;j++){
+                dp[i][j] = Math.max(dp[i-1][j-1] , dp[i-1][j]) + triangle[i][j];
+            }
         }
         
-        //3. 최대값 반환
+        // 3. 최대값 구하기
         int max = 0;
-        for(int i=0;i<len;i++) {
-        	max = Math.max(max,  dp[len -1][i]);
+        for(int i=0;i<len;i++){
+            max = Math.max(max,dp[len-1][i]);
+            
         }
-        answer = max;
-        //---------------------------------------------------------------------
-    	// 완전탐색 풀이법        
-//		answer = dfs(triangle,0,0);
-        System.out.println(answer);
-        return answer;
+        
+        return max;
     }
     
     
-    //---------------------------------------------------------------------
     // 완전탐색 풀이법 -> 효율성 fail
     public static int dfs(int[][] triangle, int index, int depth) {
 		if(depth >= triangle.length) {
 			return 0;
 		}
-				
     	return triangle[depth][index] +  Math.max(dfs(triangle, index, depth + 1), dfs(triangle, index + 1,depth + 1));
     }
 

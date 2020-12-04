@@ -1,5 +1,6 @@
 package programmers.dynamic;
 
+import java.util.TreeSet;
 
 /**
  * 문제 설명
@@ -31,57 +32,80 @@ package programmers.dynamic;
 		11 = 22 / 2와 같이 2를 3번만 사용하여 표현할 수 있습니다.
 		
 	출처
-	 	DFS 사용
-	 	https://eoghks0521.tistory.com/entry/N%EC%9C%BC%EB%A1%9C-%ED%91%9C%ED%98%84%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4
+	 	https://itchallenger.tistory.com/32
+	 	
+ 	요약
+ 		N을 1번 사용 ,  무조건 한자리수
+ 		N을 2번 사용,   NN, 사칙연산한 경우의 수
+ 		N을 2번 사용,   NNN , N을 2번 사용한 결과 + 사칙연산한 경우의 수
+ 		... 반복
+ 		
+ 		결과적으로 이미 연산된 식을 반복해서 사용하지 않으려면 , 
+ 		DP를 이용하여 d[n] = d[n-i] + d[i]라는 수식으로 풀이할 수 있다.
 	 	
  * */
 public class PresentationN {
 
+	static int _N;
+    static TreeSet<Integer>[] dynamic;		// d[n] = d[n-i] + d[i];
+    
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		int N = 5;
 		int number=12;
-		solution(N, number);
-		System.out.println(answer);
+		
+		int ans = solution(N, number);
+		System.out.println(ans);
+		
 	}
 
-	public static int answer = -1;
-	
 	public static int solution(int N, int number) {
+		_N = N;
+		dynamic = new TreeSet[10];		//N을 최대 9번 곱해봣자 NNNNNNNNN이하의 결과가 나오기 때문에 10으로 크기 설정
 		int ans = 0;
-	
-		calc(N, number, 0, 0);
-		return ans;
-	}
-	
-	public static void calc(int n, int number, int count, int result) {
-		int nn = n;
-//		System.out.println("result : "+result);
-		// 사용횟수 8 초과하는 경우 return -1
-		if(count > 8) {
-			answer = -1;
-			return;
-		}
-		
-		if(result == number) {
-			if(answer == -1 || answer > count) {
-				answer = count;
+		for(int i =0;i<=8;i++) {
+			solve(i);
+			System.out.println("dynamic : "+dynamic[i]);
+			if(dynamic[i].contains(number)) {
+				return i;
 			}
-			return;
+			System.out.println("===================================================================================");
+		}
+		return -1;
+	}
+	
+	
+	public static TreeSet<Integer> solve(int n) {
+		if((dynamic[n]!= null) && !dynamic[n].isEmpty()) {		// 전에 있던 집합찾기
+			return dynamic[n];
 		}
 		
-		for(int i=1;i<9-count; i++) {
-			calc(n, number, count+i, result+nn);
-//			System.out.println("+");
-			calc(n, number, count+i, result-nn);
-//			System.out.println("-");
-			calc(n, number, count+i, result*nn);
-//			System.out.println("*");
-			calc(n, number, count+i, result/nn);
-//			System.out.println("/");
-			
-			nn = nn * 10 + n;
+		int num=0;
+		for(int i=0;i<n;i++) {		// N을 이어서 붙인 NN 값 만들기
+			num = 10*num + _N;
 		}
+		
+		TreeSet<Integer> temp = new TreeSet<>();
+		temp.add(num);
+		System.out.println("	n :"+n+" / temp : "+temp);
+		
+		for(int i=1;i<n;i++) {
+			int j=n-i;
+			TreeSet<Integer> from = solve(i);
+			TreeSet<Integer> to = solve(j);
+			for(int n1:from) {
+				for(int n2:to) {		// d[n] = d[n-i] + d[i];
+					System.out.println("		n1 : "+n1 +"/ n2 : "+n2);
+					
+					temp.add(n1+n2);
+					temp.add(n1-n2);
+					temp.add(n1*n2);
+					if(n2 !=0) temp.add(n1/n2);
+				}
+			}
+		}
+		
+		return dynamic[n] = temp;
 	}
+	
 	
 }

@@ -24,7 +24,7 @@ JAVA를 이용한 문제풀이
 
     * Radix sort
 
-
+* #### [Dynamic Programming](https://github.com/chaminhye/Algorithm/tree/master/src/concept/dp/dp)  
 
 ## Index
 
@@ -95,13 +95,13 @@ JAVA를 이용한 문제풀이
 
     * [Anagrams](https://github.com/chaminhye/Algorithm/blob/master/src/hackerRank/Strings/Anagrams.java )  
 
-    * [RegexIP](https://github.com/chaminhye/Algorithm/blob/master/src/hackerRank/Strings/RegexIP .java )   ->  정규식 표현을 이용
+    * [RegexIP](https://github.com/chaminhye/Algorithm/blob/master/src/hackerRank/Strings/RegexIP.java )   ->  정규식 표현을 이용
 
     * [StringCompare](https://github.com/chaminhye/Algorithm/blob/master/src/hackerRank/Strings/StringCompare.java )  
 
     * [StringReverse](https://github.com/chaminhye/Algorithm/blob/master/src/hackerRank/Strings/StringReverse.java )  
 
-    * [StringTokens](https://github.com/chaminhye/Algorithm/blob/master/src/hackerRank/Strings/StringTokens .java )   -> 정규식 표현을 이용
+    * [StringTokens](https://github.com/chaminhye/Algorithm/blob/master/src/hackerRank/Strings/StringTokens.java )   -> 정규식 표현을 이용
 
       
 
