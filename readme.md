@@ -38,9 +38,9 @@ JAVA를 이용한 문제풀이
   
     * [전화번호](https://github.com/chaminhye/Algorithm/blob/master/src/programmers/hash/PhoneNumberBook.java)  
   
-  * [위장](https://github.com/chaminhye/Algorithm/blob/master/src/programmers/hash/Camouflage.java)  
+    * [위장](https://github.com/chaminhye/Algorithm/blob/master/src/programmers/hash/Camouflage.java)  
   
-  * [베스트 앨범](https://github.com/chaminhye/Algorithm/blob/master/src/programmers/hash/BestAlbum.java)  
+    * [베스트 앨범](https://github.com/chaminhye/Algorithm/blob/master/src/programmers/hash/BestAlbum.java)  
   
       
   
@@ -77,11 +77,10 @@ JAVA를 이용한 문제풀이
     ( 나름 가장 수월하게 풀었던 파트)
 
     * [모의고사](https://github.com/chaminhye/Algorithm/blob/master/src/programmers/bruteForce/PracticeTest.java )  
-  * [소수](https://github.com/chaminhye/Algorithm/blob/master/src/programmers/bruteForce/PrimeNumber.java )  
+    * [소수](https://github.com/chaminhye/Algorithm/blob/master/src/programmers/bruteForce/PrimeNumber.java )  
     * [카펫](https://github.com/chaminhye/Algorithm/blob/master/src/programmers/bruteForce/Carpet.java )  
-  * 
-  
-* #### [탐욕법](https://programmers.co.kr/learn/courses/30/parts/12244)★★★
+    
+  * #### [탐욕법](https://programmers.co.kr/learn/courses/30/parts/12244)★★★
   
     * [체육복](https://github.com/chaminhye/Algorithm/blob/master/src/programmers/greedy/GymClothes.java )  
     * [조이스틱](https://github.com/chaminhye/Algorithm/blob/master/src/programmers/greedy/Joystick.java )  -> 생각보다 다양한 패턴으로 많이 출제됨!  알파벳 계산하여 출제되는 문제 ★★
@@ -102,12 +101,13 @@ JAVA를 이용한 문제풀이
   
   * #### [깊이/너비 우선 탐색(DFS/BFS)](https://programmers.co.kr/learn/courses/30/parts/12421) ★★★★★		
   
-     -> 풀이를 보고 푸는 방법을 참고하여 문제 풀이 진행
+    -> 풀이를 보고 푸는 방법을 참고하여 문제 풀이 진행
   
     * [타겟 넘버](https://github.com/chaminhye/Algorithm/blob/master/src/programmers/dfs/TargetNumber.java )  		
     * [네트워크](https://github.com/chaminhye/Algorithm/blob/master/src/programmers/dfs/Network )  	
     * [단어 변환](https://github.com/chaminhye/Algorithm/blob/master/src/programmers/dfs/WordConversion.java )  	
     * [여행 경로](https://github.com/chaminhye/Algorithm/blob/master/src/programmers/dfs/TravelRoute.java )  	-> 정렬하는 부분이 keyPoint
+  
 
 ------
 
@@ -131,6 +131,7 @@ JAVA를 이용한 문제풀이
 
     * [BigNumber](https://github.com/chaminhye/Algorithm/blob/master/src/hackerRank/BigDecimal/BigNumber.java )
     * [PrimalityTest](https://github.com/chaminhye/Algorithm/blob/master/src/hackerRank/BigDecimal/PrimalityTest.java )
+    * [MiniMaxSum](https://github.com/chaminhye/Algorithm/blob/master/src/hackerRank/BigDecimal/MiniMaxSum.java )
 
 
 
