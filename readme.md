@@ -125,10 +125,12 @@ JAVA를 이용한 문제풀이
 
     * [StringTokens](https://github.com/chaminhye/Algorithm/blob/master/src/hackerRank/Strings/StringTokens.java )   -> 정규식 표현을 이용
 
+    * [TimeConversion](https://github.com/chaminhye/Algorithm/blob/master/src/hackerRank/Strings/TimeConversion.java )  
+
       
 
   * #### BigDecimal
-
+  
     * [BigNumber](https://github.com/chaminhye/Algorithm/blob/master/src/hackerRank/BigDecimal/BigNumber.java )
     * [PrimalityTest](https://github.com/chaminhye/Algorithm/blob/master/src/hackerRank/BigDecimal/PrimalityTest.java )
     * [MiniMaxSum](https://github.com/chaminhye/Algorithm/blob/master/src/hackerRank/BigDecimal/MiniMaxSum.java )
