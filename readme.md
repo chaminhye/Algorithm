@@ -134,8 +134,8 @@ JAVA를 이용한 문제풀이
     * [BigNumber](https://github.com/chaminhye/Algorithm/blob/master/src/hackerRank/BigDecimal/BigNumber.java )
     * [PrimalityTest](https://github.com/chaminhye/Algorithm/blob/master/src/hackerRank/BigDecimal/PrimalityTest.java )
     * [MiniMaxSum](https://github.com/chaminhye/Algorithm/blob/master/src/hackerRank/BigDecimal/MiniMaxSum.java )
-
-
+    
+  * [GradingStudents](https://github.com/chaminhye/Algorithm/blob/master/src/hackerRank/GradingStudents.java ) -> 나머지 연산을 통해 간단하게 풀이 가능
 
 ------
 
