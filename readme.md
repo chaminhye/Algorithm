@@ -134,10 +134,13 @@ JAVA를 이용한 문제풀이
     * [BigNumber](https://github.com/chaminhye/Algorithm/blob/master/src/hackerRank/BigDecimal/BigNumber.java )
     * [PrimalityTest](https://github.com/chaminhye/Algorithm/blob/master/src/hackerRank/BigDecimal/PrimalityTest.java )
     * [MiniMaxSum](https://github.com/chaminhye/Algorithm/blob/master/src/hackerRank/BigDecimal/MiniMaxSum.java )
+    * 
     
-  * [GradingStudents](https://github.com/chaminhye/Algorithm/blob/master/src/hackerRank/GradingStudents.java ) -> 나머지 연산을 통해 간단하게 풀이 가능
+  * #### Practice
   
-  * [AppleAndOrange](https://github.com/chaminhye/Algorithm/blob/master/src/hackerRank/AppleAndOrange.java ) 
+    * [GradingStudents](https://github.com/chaminhye/Algorithm/blob/master/src/hackerRank/practice/GradingStudents.java ) -> 나머지 연산을 통해 간단하게 풀이 가능
+    * [AppleAndOrange](https://github.com/chaminhye/Algorithm/blob/master/src/hackerRank/practice/AppleAndOrange.java ) 
+    * [NumberLineJumps](https://github.com/chaminhye/Algorithm/blob/master/src/hackerRank/practice/NumberLineJumps.java ) -> 계산식을 이용하여 , 나머지 연산이용하는것이 키포인트!
 
 ------
 
