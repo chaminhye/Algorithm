@@ -141,6 +141,7 @@ JAVA를 이용한 문제풀이
     * [GradingStudents](https://github.com/chaminhye/Algorithm/blob/master/src/hackerRank/practice/GradingStudents.java ) -> 나머지 연산을 통해 간단하게 풀이 가능
     * [AppleAndOrange](https://github.com/chaminhye/Algorithm/blob/master/src/hackerRank/practice/AppleAndOrange.java ) 
     * [NumberLineJumps](https://github.com/chaminhye/Algorithm/blob/master/src/hackerRank/practice/NumberLineJumps.java ) -> 계산식을 이용하여 , 나머지 연산이용하는것이 키포인트!
+    * [BetweenTwoSets](https://github.com/chaminhye/Algorithm/blob/master/src/hackerRank/practice/BetweenTwoSets.java ) -> 유클리드 호제법을 이용한 최대공약수, 최소공배수 구하기
 
 ------
 
