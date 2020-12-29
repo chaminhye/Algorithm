@@ -32,8 +32,12 @@ JAVA를 이용한 문제풀이
 
   
 
-  * ####  [해시](https://programmers.co.kr/learn/courses/30/parts/12077)  
+  * ####  [practice](https://programmers.co.kr/learn/courses/30/parts/12077)  
 
+    * [(Level2)멀쩡한 사각형](https://github.com/chaminhye/Algorithm/blob/master/src/programmers/practice/FineSquare.java)  -> 최대공약수로 접근, 규칙성을 찾는것이 목표
+  
+  * #### [해시](https://programmers.co.kr/learn/courses/30/parts/12077)  
+  
     * [완주하지 못한 선수](https://github.com/chaminhye/Algorithm/blob/master/src/programmers/hash/NotFinishPlayer.java)  
   
     * [전화번호](https://github.com/chaminhye/Algorithm/blob/master/src/programmers/hash/PhoneNumberBook.java)  
@@ -41,15 +45,15 @@ JAVA를 이용한 문제풀이
     * [위장](https://github.com/chaminhye/Algorithm/blob/master/src/programmers/hash/Camouflage.java)  
   
     * [베스트 앨범](https://github.com/chaminhye/Algorithm/blob/master/src/programmers/hash/BestAlbum.java)  
-  
-      
-  
-  * #### [스택/큐](https://programmers.co.kr/learn/courses/30/parts/12081)  
 
+      
+
+  * #### [스택/큐](https://programmers.co.kr/learn/courses/30/parts/12081)  
+  
     * [주식가격](https://github.com/chaminhye/Algorithm/blob/master/src/programmers/stackQueue/StockPrice.java )  
 
     * [기능개발](https://github.com/chaminhye/Algorithm/blob/master/src/programmers/stackQueue/FunctionDevelope.java )  
-  
+
     * [다리를 지나는 트럭](https://github.com/chaminhye/Algorithm/blob/master/src/programmers/stackQueue/TruckCrossingBridge.java )  
 
     * [프린터](https://github.com/chaminhye/Algorithm/blob/master/src/programmers/stackQueue/Printer.java )  
@@ -57,25 +61,25 @@ JAVA를 이용한 문제풀이
       
 
   * #### [힙](https://programmers.co.kr/learn/courses/30/parts/12117)  
-
+  
     * [더 맵게](https://github.com/chaminhye/Algorithm/blob/master/src/programmers/heap/MoreSpicy.java )  
 
     * [디스크 컨트롤러](https://github.com/chaminhye/Algorithm/blob/master/src/programmers/heap/DiskController.java )  
-  
-    * [이중 우선순위 큐](https://github.com/chaminhye/Algorithm/blob/master/src/programmers/heap/DoublePriorityQueue.java )  
 
+    * [이중 우선순위 큐](https://github.com/chaminhye/Algorithm/blob/master/src/programmers/heap/DoublePriorityQueue.java )  
+  
       
 
   * #### [정렬](https://programmers.co.kr/learn/courses/30/parts/12198)
-  
+
     * [K번째 수](https://github.com/chaminhye/Algorithm/blob/master/src/programmers/sort/KthNumber.java )  
 
       
 
   * #### [완전탐색](https://programmers.co.kr/learn/courses/30/parts/12230)
-
+  
     ( 나름 가장 수월하게 풀었던 파트)
-
+  
     * [모의고사](https://github.com/chaminhye/Algorithm/blob/master/src/programmers/bruteForce/PracticeTest.java )  
     * [소수](https://github.com/chaminhye/Algorithm/blob/master/src/programmers/bruteForce/PrimeNumber.java )  
     * [카펫](https://github.com/chaminhye/Algorithm/blob/master/src/programmers/bruteForce/Carpet.java )  
