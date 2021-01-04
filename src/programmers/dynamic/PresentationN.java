@@ -47,54 +47,64 @@ import java.util.TreeSet;
 public class PresentationN {
 
 	static int _N;
-    static TreeSet<Integer>[] dynamic;		// d[n] = d[n-i] + d[i];
+	static TreeSet<Integer>[] dynamic;		// 결과를 담을 배열 선언, d[n] = d[n-i] + d[i]
     
 	public static void main(String[] args) {
 		int N = 5;
 		int number=12;
-		
+		int num = 0;
+        
 		int ans = solution(N, number);
-		System.out.println(ans);
+		System.out.println("answer : "+ans);
 		
 	}
 
 	public static int solution(int N, int number) {
 		_N = N;
-		dynamic = new TreeSet[10];		//N을 최대 9번 곱해봣자 NNNNNNNNN이하의 결과가 나오기 때문에 10으로 크기 설정
-		int ans = 0;
-		for(int i =0;i<=8;i++) {
+		dynamic = new TreeSet[10];			// N을 최대 9번 곱해봣자 NNNNNNNNN이하의 결과가 나오기 때문에 10으로 크기 설정
+
+		if(N == number) {					// N과 number가 같은경우 무조건 return 1
+			return 1;
+		}
+		
+		for(int i =0;i<=8;i++) {			// N을 사용하는 횟수가 8보다 크면 -1이므로
 			solve(i);
-			System.out.println("dynamic : "+dynamic[i]);
+//			System.out.println("dynamic : "+dynamic[i]);
+
+			// 연산결과 number와 값이 일치하면 return
 			if(dynamic[i].contains(number)) {
 				return i;
 			}
-			System.out.println("===================================================================================");
+//			System.out.println("===================================================================================");
 		}
 		return -1;
 	}
 	
 	
 	public static TreeSet<Integer> solve(int n) {
-		if((dynamic[n]!= null) && !dynamic[n].isEmpty()) {		// 전에 있던 집합찾기
+		if((dynamic[n]!= null) && !dynamic[n].isEmpty()) {		// 이미 존재하는 값인지 판단하여, 존재하면 return
 			return dynamic[n];
 		}
 		
-		int num=0;
-		for(int i=0;i<n;i++) {		// N을 이어서 붙인 NN 값 만들기
-			num = 10*num + _N;
+		// N을 이어서 붙인 NN...N 값 만들기
+		int numN=0;
+		for(int i=0;i<n;i++) {		
+			numN = (10*numN) + _N;
 		}
 		
 		TreeSet<Integer> temp = new TreeSet<>();
-		temp.add(num);
-		System.out.println("	n :"+n+" / temp : "+temp);
+		temp.add(numN);			// temp에 numN값 담기
 		
+		
+		// d[n] = d[n-i] + d[i]
 		for(int i=1;i<n;i++) {
 			int j=n-i;
-			TreeSet<Integer> from = solve(i);
-			TreeSet<Integer> to = solve(j);
+			TreeSet<Integer> from = solve(i);		// i 번째까지 구한 집합
+			TreeSet<Integer> to = solve(j);			// j 번째까지 구한 집합
+			
 			for(int n1:from) {
-				for(int n2:to) {		// d[n] = d[n-i] + d[i];
-					System.out.println("		n1 : "+n1 +"/ n2 : "+n2);
+				for(int n2:to) {			
+//					System.out.println("		n1 : "+n1 +"/ n2 : "+n2);
 					
 					temp.add(n1+n2);
 					temp.add(n1-n2);
@@ -104,6 +114,7 @@ public class PresentationN {
 			}
 		}
 		
+//		System.out.println("	n :"+n+" / temp : "+temp);
 		return dynamic[n] = temp;
 	}
 	
