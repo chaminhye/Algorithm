@@ -75,7 +75,7 @@ public class PresentationN {
 			if(dynamic[i].contains(number)) {
 				return i;
 			}
-//			System.out.println("===================================================================================");
+			System.out.println("===================================================================================");
 		}
 		return -1;
 	}
@@ -104,7 +104,7 @@ public class PresentationN {
 			
 			for(int n1:from) {
 				for(int n2:to) {			
-//					System.out.println("		n1 : "+n1 +"/ n2 : "+n2);
+					System.out.println("		n1 : "+n1 +"/ n2 : "+n2);
 					
 					temp.add(n1+n2);
 					temp.add(n1-n2);
@@ -114,7 +114,7 @@ public class PresentationN {
 			}
 		}
 		
-//		System.out.println("	n :"+n+" / temp : "+temp);
+		System.out.println("	n :"+n+" / temp : "+temp);
 		return dynamic[n] = temp;
 	}
 	
