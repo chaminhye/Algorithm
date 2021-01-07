@@ -1,10 +1,12 @@
 # Algorithm 문제 풀이
 
-JAVA를 이용한 문제풀이
+JAVA를 이용한 알고리즘 문제풀이 
 
 
 
 ## Algorithm 개념
+
+* #### 🌳 [알고리즘 개념 정리 개인 블로그](https://velog.io/@ming/series/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EA%B0%9C%EB%85%90%EC%95%8C%EA%B8%B0)  
 
 * #### [정렬](https://github.com/chaminhye/Algorithm/tree/master/src/concept/sorting)  
 
@@ -25,6 +27,8 @@ JAVA를 이용한 문제풀이
     * Radix sort
 
 * #### [Dynamic Programming](https://github.com/chaminhye/Algorithm/tree/master/src/concept/dp/dp)  
+
+  #### 
 
 ## Index
 
@@ -138,16 +142,34 @@ JAVA를 이용한 문제풀이
     * [BigNumber](https://github.com/chaminhye/Algorithm/blob/master/src/hackerRank/BigDecimal/BigNumber.java )
     * [PrimalityTest](https://github.com/chaminhye/Algorithm/blob/master/src/hackerRank/BigDecimal/PrimalityTest.java )
     * [MiniMaxSum](https://github.com/chaminhye/Algorithm/blob/master/src/hackerRank/BigDecimal/MiniMaxSum.java )
-    * 
     
+  * #### **DP**
+  
+    * [TheCoinChangeProblem](https://github.com/chaminhye/Algorithm/blob/master/src/hackerRank/DynamicPrograming/TheCoinChangeProblem.java ) ->bottom-up 방식으로 거스름돈을 계산한다..
+  
+      
+  
+  * #### **Sorting**
+  
+    * [MigratoryBirds](https://github.com/chaminhye/Algorithm/blob/master/src/hackerRank/Sorting/MigratoryBirds.java )  -> Map과 Collections.max를 이용하면 쉽게 풀이가능
+  
+    
+  
   * #### Practice
   
     * [GradingStudents](https://github.com/chaminhye/Algorithm/blob/master/src/hackerRank/practice/GradingStudents.java ) -> 나머지 연산을 통해 간단하게 풀이 가능
+    
     * [AppleAndOrange](https://github.com/chaminhye/Algorithm/blob/master/src/hackerRank/practice/AppleAndOrange.java ) 
+    
     * [NumberLineJumps](https://github.com/chaminhye/Algorithm/blob/master/src/hackerRank/practice/NumberLineJumps.java ) -> 계산식을 이용하여 , 나머지 연산이용하는것이 키포인트!
+    
     * [BetweenTwoSets](https://github.com/chaminhye/Algorithm/blob/master/src/hackerRank/practice/BetweenTwoSets.java ) -> 유클리드 호제법을 이용한 최대공약수, 최소공배수 구하기
+    
     * [BreakingTheRecords](https://github.com/chaminhye/Algorithm/blob/master/src/hackerRank/practice/BreakingTheRecords.java ) 
+    
     * [SubarrayDivision](https://github.com/chaminhye/Algorithm/blob/master/src/hackerRank/practice/SubarrayDivision.java ) 
+    
+      
 
 ------
 
