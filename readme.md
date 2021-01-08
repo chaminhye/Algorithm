@@ -153,7 +153,9 @@ JAVA를 이용한 알고리즘 문제풀이
   
     * [MigratoryBirds](https://github.com/chaminhye/Algorithm/blob/master/src/hackerRank/Sorting/MigratoryBirds.java )  -> Map과 Collections.max를 이용하면 쉽게 풀이가능
   
-    
+  * #### Greedy
+  
+    * [Candies](https://github.com/chaminhye/Algorithm/blob/master/src/hackerRank/Greedy/Candies.java )  
   
   * #### Practice
   
