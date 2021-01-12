@@ -20,8 +20,6 @@ public class DayoftheProgrammer {
 	}
 
    static String dayOfProgrammer(int year) {
-	   String month = "";
-	   String day = "";
 	   
 	   if(year == 1918) {
 		   return "26.09."+year;

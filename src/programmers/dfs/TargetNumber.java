@@ -21,15 +21,16 @@ package programmers.dfs;
 		numbers	         target	 return
 		[1, 1, 1, 1, 1]	    3	   5
 		
-	문제풀이 참고 : https://lkhlkh23.tistory.com/74
-	    
+	문제 KeyPoint
+		numbers 모든숫자를 다 이용해야하기 때문에 dfs로 접근,
 		DFS : Root Node 혹은 다른 임의의 Node에서 다음 분기(Branch)로 넘어가기 전에 해당 분기를 완벽하게 탐색하는 방법이다.
 		      ★ Stack 혹은 재귀함수(Recursion)으로 구현된다.
-		(개념참고 : https://developer-mac.tistory.com/64)      
+		(개념참고 : https://developer-mac.tistory.com/64)
 		
+	문제풀이 참고 
+		https://lkhlkh23.tistory.com/74
 		- 경로를 탐색할 때 한 방향으로 갈 수 있을 때까지 계속 가다가 더 이상 갈 수 없게되면 다른 방향으로 다시 탐색을 진행
 		- 모든 노드를 방문하는 경우에 이 방법을 사용한다.
-		
 */
 
 
@@ -44,20 +45,17 @@ public class TargetNumber {
 		
 	}
 	
-	public static int dfs(int[] numbers, int node, int sum, int target) {
-//		System.out.println("node :"+node +" / sum : "+sum);
-		// 종료조건은 모든 깊이 즉, 배열에 모든 요소를 접근했을 때이다.
-		if(node == numbers.length) {
+	public static int dfs(int[] numbers, int depth, int sum, int target) {
+		// 종료조건은 모든 깊이 즉, 배열에 모든 요소를 접근
+		if(depth == numbers.length) {
 			if(sum == target) {
-//				System.out.println("here");
 				return 1;
 			}else {
 				return 0;
 			}
 		}
 		
-		// 그렇지 않은 경우 , 인덱스를 더할지 뺄지 모든 경우를 구함
-		return dfs(numbers, node+1, sum+numbers[node], target) + dfs(numbers, node+1, sum - numbers[node], target);
-		
+		// 그렇지 않은 경우 , depth를 하나씩 추가하면서, sum +1 , sum -1씩 연산
+		return dfs(numbers, depth+1, sum + numbers[depth], target) + dfs(numbers, depth+1, sum - numbers[depth], target);
 	}
 }
