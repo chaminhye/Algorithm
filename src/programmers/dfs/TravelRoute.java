@@ -33,77 +33,68 @@ import java.util.List;
 		[ICN, SFO, ATL, ICN, ATL, SFO] 순으로 방문할 수도 있지만 [ICN, ATL, ICN, SFO, ATL, SFO] 가 알파벳 순으로 앞섭니다.
 	
 	문제풀이 참고
+		DFS 이용
 		https://geehye.github.io/programmers-dfs-bfs-04/#
 		
-		DFS 이용
+	문제 풀이
+		https://velog.io/@ming/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4-%EC%97%AC%ED%96%89%EA%B2%BD%EB%A1%9CLevel-3	
  * 
  * */
 
 public class TravelRoute {
-	static List<String> list = new ArrayList<>();
-	static String route = "" ;
-	static boolean[] visited;
+	static boolean[] visited ;
+	static List<String> list = new ArrayList<String>();
+	static String routes = "";
 	
-	public static void main(String arg[]) {
-		
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
 		String[][] tickets = {{"ICN", "SFO"}, {"ICN", "ATL"}, {"SFO", "ATL"}, {"ATL", "ICN"}, {"ATL","SFO"}};
-//		String[][] tickets = {{"ICN","JFK"}, {"HND","IAD"}, {"JFK","HND"}};
-		String[] arr = solution(tickets);
-//		for(int i=0;i<arr.length;i++) {
-//			
-//			System.out.println(arr[i]);
-//		}
-		
+//		String[][] tickets = {{"ICN", "JFK"}, {"HND", "IAD"},{"JFK", "HND"}};
+		solution(tickets);
 	}
 	
 	public static String[] solution(String[][] tickets) {
-        visited = new boolean[tickets.length];
+		String[] answers = new String[tickets.length+1];
+		visited = new boolean[tickets.length];
+		answers = new String[tickets.length+1];
 		
-        // 일단 갈 수 있는 모든 경로를  dfs로 탐색
-		for(int i = 0 ; i < tickets.length; i++) {
-			String departure = tickets[i][0];
-			String arrival = tickets[i][1];
-			
-			if(departure.equals("ICN")) {
-				visited[i] = true;
-				route = departure + ",";
-				dfs(tickets, arrival, 1);
-				visited[i] = false;
+		for(int i=0;i<tickets.length;i++) {
+			if(tickets[i][0].equals("ICN")) {
+				// 방문여부를 체크해주고,
+				visited[i]=true;
+				routes ="ICN";
+				dfs(tickets, tickets[i][1],1);
+				// false로 체크하는 이유는 , 
+				// ICN으로 시작하는 다른 정점을 후에 방문하기 위함이다.
+				visited[i]=false;
+				System.out.println("------------------------");
 			}
 		}
-//		for(int i =0;i<list.size();i++) {
-//			System.out.print(list.get(i)+ " ");
-//		}
-		
-		// 가능한 여행경로 오름차순 정렬
 		Collections.sort(list);
-		
-//		System.out.println();
-//		for(int i =0;i<list.size();i++) {
-//			System.out.print(list.get(i)+" ");
+//		System.out.println("list - size : "+list.size());
+		answers = list.get(0).split(",");
+//		for(String st : answers) {
+//			System.out.print(st+" ");
 //		}
-		String[] answer = list.get(0).split(",");
-		return answer;
+		return answers;
 	}
 	
 	public static void dfs(String[][] tickets, String departure, int count) {
-		System.out.println(route);
-		route += departure + ",";
-		
-		if(count == tickets.length) {			// 모든 여행지를 다 탐색한 경우
-			list.add(route);
+		// 출발지를 경로에 추가
+		routes +=","+departure;
+		if(count == tickets.length) {
+			list.add(routes);
 			return;
 		}
-		
-		for(int i = 0 ; i < tickets.length ; i++) {
-			String depart = tickets[i][0];		// 출발
-			String arrival = tickets[i][1];		// 도착
-			
-			if(departure.equals(depart) && !visited[i]) {
-				visited[i] = true;
-				dfs(tickets, arrival, count+1);
-				visited[i] = false;
-				route = route.substring(0, route.length()-4);
+		for(int i=0; i<tickets.length; i++) {
+			if(tickets[i][0].equals(departure)  && !visited[i]) {
+				visited[i]=true;
+				dfs(tickets, tickets[i][1], count+1 );
+				
+				// 같은 방문지가 있는 경우, 다른 방문지를 돌기위해 false로 설정
+				// 그리고 routes에서도 지워주기 위해 subString(0, length-4)으로 설정 
+				visited[i]=false;
+				routes = routes.substring(0, routes.length()-4);
 			}
 		}
 	}
