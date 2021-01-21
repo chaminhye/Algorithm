@@ -28,53 +28,57 @@ package programmers.dfs;
 		
 		예제 #2
 		target인 cog는 words 안에 없기 때문에 변환할 수 없습니다.
+	
+	문제 풀이
+		https://velog.io/@ming/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4-%EB%8B%A8%EC%96%B4%EB%B3%80%ED%99%98Level-3
  * 
  * */
 public class WordConversion {
-	static int answer = 0;
-	static boolean[] used;
+	static boolean[] visited;		// 방문 여부 체크
+	static int answer;
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		int result = solution("hit", "cog", new String[] {"hot", "dot", "dog", "lot", "log", "cog"});
-		System.out.println(result);
+		String begin="hit";
+		String target="cog";
+//		String[] words = {"hot", "dot", "dog", "lot", "log", "cog"};
+		String[] words = {"hot", "dot", "dog", "lot", "log"};
+		System.out.println("sol : "+solution(begin,target,words));
 	}
 	
 	public static int solution(String begin, String target, String[] words) {
-		answer = words.length+1;			// words에 맞는 단어가 없는 것을 체크하기 위해  words.length+1로 셋팅	
-		used = new boolean[words.length];	// 모두 false로 초기화
-		dfs(begin, target, 0, words);
-		
-		return answer == words.length+1 ? 0 : answer;
+		visited = new boolean[words.length];
+		answer = words.length;			// 단어 변환이 불가능한 경우를 생각하여, words 배열 크기만큼 초기화
+		dfs(words, begin, target, 0);
+//		System.out.println("::  / answer : "+answer);
+//		System.out.println("::  /  words.length : "+ words.length);
+		return answer == words.length ? 0 : answer;
 	}
-
-	public static void dfs(String word, String target, int count, String[] words) {
-		// 현재 단어와 target이 같으면 return
-		if(word.equals(target)) {
-			answer = Math.min(answer , count);
+	
+	public static void dfs(String[] words, String begin, String target, int count) {
+		// 종료시점은 begin , target이 같은 경우( 단어변환이 불가능한 경우, 재귀호출이 종료된다)
+		if(begin.equals(target)) {
+			answer = Math.min(answer, count);
 			return;
 		}
-
-		// 탐색한 글자중 하나만 차이나고 , 탐색되지 않은 경우 dfs 호출
-		for(int i=0; i<words.length;i++) {
-			if(!used[i] && spellCheck(word, words[i])) {
-				used[i] = true;
-//				System.out.println("	words["+i+"] : "+words[i] + "- count : "+count);
-				dfs(words[i], target, count+1, words);
-				used[i] = false;
+		
+		for(int i=0;i<words.length;i++) {
+			if(wordCheck(begin, words[i]) && !visited[i]) {
+				visited[i] = true;
+				System.out.println("	  i : "+i+" :: begin : "+begin+" / words: "+  words[i]);
+				dfs(words, words[i], target, count+1); 
+				// 현재 단어로 dfs를 탐색했다면, 방문여부를  false로 처리해준다. 
+				visited[i]=false;
 			}
 		}
 	}
 	
-	// 한번에 한글자만 바꾸는 것이 가능하므로, 현재 단어와 다음 단어가 하나만 다른지 체크
-	public static boolean spellCheck(String word, String nextWord) {
-		int count = 0;
-		for(int i=0;i<word.length();i++) {
-			// word.length == nextWord.length 같은수 밖에 없으므로,
-			if(word.charAt(i) != nextWord.charAt(i)) {
-				count++;
-			}
+	// 한 글자만 다른지 체크
+	public static boolean wordCheck(String a, String b) {
+		int cnt = 0;
+		for(int i=0;i<a.length();i++) {
+			if(a.charAt(i) != b.charAt(i)) cnt++;
 		}
-		return count==1 ? true : false;
+		return cnt==1 ? true : false;
 	}
 }
