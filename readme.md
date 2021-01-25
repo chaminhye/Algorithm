@@ -2,7 +2,9 @@
 
 JAVA를 이용한 알고리즘 문제풀이 
 
+📑[알고리즘 풀이 설명 velog](https://velog.io/@ming/series/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%ED%92%80%EC%9D%B4JAVA)
 
+[📕알고리즘 개념알기 velog](https://velog.io/@ming/series/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EA%B0%9C%EB%85%90%EC%95%8C%EA%B8%B0)
 
 ## Algorithm 개념
 
@@ -32,6 +34,10 @@ JAVA를 이용한 알고리즘 문제풀이
 
   * 인접행렬, 인접리스트, 스택으로 구현한 DFS  & 큐로 구현한 BFS -> [소스보기](https://github.com/chaminhye/Algorithm/blob/master/src/concept/graph/DFSandBFS.java)
   
+* ####  [Binary Search](https://velog.io/@ming/%EC%9D%B4%EB%B6%84%ED%83%90%EC%83%89Binary-Search)
+
+  * 이분탐색(이진탐색)을 배열로 구현 ->  [소스보기](https://github.com/chaminhye/Algorithm/blob/master/src/concept/search/BinarySearch.java)
+
   
 
 ## Index
@@ -118,9 +124,19 @@ JAVA를 이용한 알고리즘 문제풀이
     -> 그림을 그려서 문제에 대한 이해도를 높이자.!
 
     * [타겟 넘버](https://github.com/chaminhye/Algorithm/blob/master/src/programmers/dfs/TargetNumber.java )     -> DFS로 문제풀이	
+    
     * [네트워크](https://github.com/chaminhye/Algorithm/blob/master/src/programmers/dfs/Network )  	-> DFS & BFS 문제풀이
+    
     * [단어 변환](https://github.com/chaminhye/Algorithm/blob/master/src/programmers/dfs/WordConversion.java )     -> DFS로 문제풀이
+    
     * [여행 경로](https://github.com/chaminhye/Algorithm/blob/master/src/programmers/dfs/TravelRoute.java )     -> DFS로 문제풀이
+    
+      
+    
+  * #### [이분탐색](https://programmers.co.kr/learn/courses/30/parts/12486)
+  
+    * [입국심사](https://github.com/chaminhye/Algorithm/blob/master/src/programmers/binary/Immigration.java )  -> 이분탐색, 접근방법을 잘 생각해야함.
+    * 징검다리
 
 
 ------

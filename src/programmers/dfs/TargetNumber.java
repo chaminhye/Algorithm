@@ -48,12 +48,10 @@ public class TargetNumber {
 	public static int dfs(int[] numbers, int depth, int sum, int target) {
 		// 종료조건은 모든 깊이 즉, 배열에 모든 요소를 접근
 		if(depth == numbers.length) {
-			if(sum == target) {
-				return 1;
-			}else {
-				return 0;
-			}
+//			System.out.println("	depth : "+depth +" / sum : "+sum);
+			return sum == target ? 1 : 0;
 		}
+//		System.out.println("depth : "+depth +" / sum : "+sum+ "/  numbers["+depth+"] : "+numbers[depth]);
 		
 		// 그렇지 않은 경우 , depth를 하나씩 추가하면서, sum +1 , sum -1씩 연산
 		return dfs(numbers, depth+1, sum + numbers[depth], target) + dfs(numbers, depth+1, sum - numbers[depth], target);
