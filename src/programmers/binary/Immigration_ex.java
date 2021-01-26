@@ -6,7 +6,24 @@ public class Immigration_ex {
     public static void main(String args[]){
 //        System.out.println( " answer : "+solution(6, new int[]{7,10}));
 //        System.out.println( " answer : "+solution2(6, new int[]{7,10}));
-        System.out.println( " answer : "+solution3(6, new int[]{7,10}));
+//        System.out.println( " answer : "+solution3(6, new int[]{7,10}));
+        System.out.println( " answer -- : "+solution0(6, new int[]{7,10}));
+    }
+
+    public static long solution0(int n, int[] times) {
+        int[] arr = new int[n*2];
+        int len = times.length;
+        long answer = 0;
+        for(int i=0;i<len;i++){
+            for(int j=0;j<n;j++) {
+                System.out.println(times[i]*(j+1));
+                arr[j] = times[i]*(n+1);
+            }
+        }
+        Arrays.sort(arr);       // 오름차순 정렬
+        int idx = n-len;
+
+        return answer;
     }
 
     /**
@@ -111,7 +128,17 @@ public class Immigration_ex {
                 answer = Math.min(answer, mid);     // 28,29 둘다 답이 될수 있으므로, Math.min값 처리
 //                }
             }
+
+            if(sum < n){        // 최대값 범위를 줄여야 함
+                max = mid -1;
+            }else{              // 최소값 범위를 늘려야하는 경우
+                min = mid +1;
+//                if(sum == n){
+                answer = Math.min(answer, mid);     // 28,29 둘다 답이 될수 있으므로, Math.min값 처리
+//                }
+            }
         }
         return answer;
     }
+
 }

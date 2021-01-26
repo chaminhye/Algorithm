@@ -1,7 +1,12 @@
 package programmers.binary;
 
 import java.util.Arrays;
-
+/**
+ *  문제 풀이 참고
+ *      https://woongsin94.tistory.com/185
+ *  문제 풀이
+ *      https://velog.io/@ming/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4-%EC%9E%85%EA%B5%AD%EC%8B%AC%EC%82%ACLevel-3
+ * */
 public class Immigration {
     public static void main(String args[]){
         System.out.println( " answer : "+solution(6, new int[]{7,10}));
