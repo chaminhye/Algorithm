@@ -145,7 +145,7 @@ JAVA를 이용한 알고리즘 문제풀이
     
   * #### [그래프](https://programmers.co.kr/learn/courses/30/parts/14393)
   
-    *  [가장 먼 노드](https://github.com/chaminhye/Algorithm/blob/master/src/programmers/graph/FarthestNode.java)
+    *  [가장 먼 노드](https://github.com/chaminhye/Algorithm/blob/master/src/programmers/graph/FarthestNode.java) -> BFS 탐색 이용
     * [순위](https://github.com/chaminhye/Algorithm/blob/master/src/programmers/graph/Ranking.java) -> 플로리다 와샬 알고리즘 적용
   
     

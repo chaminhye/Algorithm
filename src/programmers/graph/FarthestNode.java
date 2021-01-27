@@ -2,7 +2,10 @@ package programmers.graph;
 
 import java.util.LinkedList;
 import java.util.Queue;
-
+/**
+ *  문제 풀이
+ *      https://velog.io/@ming/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4-%EA%B0%80%EC%9E%A5-%EB%A8%BC-%EB%85%B8%EB%93%9CLevel-3
+ * */
 public class FarthestNode {
     public static void main(String args[]){
         System.out.println(solution(6, new int[][]{{3,6}, {4,3}, {3,2}, {1,3}, {1,2}, {2,4}, {5,2}}));
