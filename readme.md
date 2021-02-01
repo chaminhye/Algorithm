@@ -90,21 +90,23 @@ JAVA를 이용한 알고리즘 문제풀이
 
     * [K번째 수](https://github.com/chaminhye/Algorithm/blob/master/src/programmers/sort/KthNumber.java )  
 
+    * [H-Index](https://github.com/chaminhye/Algorithm/blob/master/src/programmers/sort/HIndex.java)
+
       
 
   * #### [완전탐색](https://programmers.co.kr/learn/courses/30/parts/12230)
 
     ( 나름 가장 수월하게 풀었던 파트)
-
+  
     * [모의고사](https://github.com/chaminhye/Algorithm/blob/master/src/programmers/bruteForce/PracticeTest.java )  
     * [소수](https://github.com/chaminhye/Algorithm/blob/master/src/programmers/bruteForce/PrimeNumber.java )  
     * [카펫](https://github.com/chaminhye/Algorithm/blob/master/src/programmers/bruteForce/Carpet.java )  
-    
+  
   * #### [탐욕법](https://programmers.co.kr/learn/courses/30/parts/12244)★★★
-
+  
     * [체육복](https://github.com/chaminhye/Algorithm/blob/master/src/programmers/greedy/GymClothes.java )  
     * [조이스틱](https://github.com/chaminhye/Algorithm/blob/master/src/programmers/greedy/Joystick.java )  -> 생각보다 다양한 패턴으로 많이 출제됨!  알파벳 계산하여 출제되는 문제 ★★
-    * [구명보트](https://github.com/chaminhye/Algorithm/blob/master/src/programmers/greedy/Lifeboat.java )  
+  * [구명보트](https://github.com/chaminhye/Algorithm/blob/master/src/programmers/greedy/Lifeboat.java )  
     * [큰 수 만들기](https://github.com/chaminhye/Algorithm/blob/master/src/programmers/greedy/MakingBigNumber.java )  
 
     
@@ -124,7 +126,7 @@ JAVA를 이용한 알고리즘 문제풀이
     -> 풀이를 보고 푸는 방법을 참고하여 문제 풀이 진행
 
     -> 그림을 그려서 문제에 대한 이해도를 높이자.!
-
+  
     * [타겟 넘버](https://github.com/chaminhye/Algorithm/blob/master/src/programmers/dfs/TargetNumber.java )     -> DFS로 문제풀이	
     
     * [네트워크](https://github.com/chaminhye/Algorithm/blob/master/src/programmers/dfs/Network )  	-> DFS & BFS 문제풀이
@@ -138,8 +140,6 @@ JAVA를 이용한 알고리즘 문제풀이
   * #### [이분탐색](https://programmers.co.kr/learn/courses/30/parts/12486)
   
     * [입국심사](https://github.com/chaminhye/Algorithm/blob/master/src/programmers/binary/Immigration.java )  -> 이분탐색, 접근방법을 잘 생각해야함.
-    
-    * 징검다리
     
       
     
