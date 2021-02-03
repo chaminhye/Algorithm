@@ -1,5 +1,6 @@
 package programmers.greedy;
 
+import java.util.Arrays;
 import java.util.Stack;
 
 /**
@@ -23,70 +24,42 @@ import java.util.Stack;
 		4177252841	  4	    775841
 		
 	풀이 참고
-		https://velog.io/@hyeon930/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4-%ED%81%B0-%EC%88%98-%EB%A7%8C%EB%93%A4%EA%B8%B0-Java
+ 		https://geehye.github.io/programmers-greedy-02/#
+
+ 	문제 풀이
+ 		https://velog.io/@ming/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4-%ED%81%B0-%EC%88%98-%EB%A7%8C%EB%93%A4%EA%B8%B0Level-3
  * */
 public class MakingBigNumber {
 	public static void main(String args[]) {
-		String number = "1231234";
-		int k = 3;
-//		String number = "1924";
-//		int k = 2;
-		
-		solution(number, k);
-				
+//		String number = "1231234";
+//		int k = 3;
+		String number = "1924";
+		int k = 2;
+		System.out.println(solution(number, k));
 	}
-	
-	public static String solution(String number, int k) {
-		StringBuilder sb = new StringBuilder();
-	    
+
+	public static String solution(String number, int k){
+		StringBuilder sb = new StringBuilder();		// 9,10 번 예외 케이스 때문에 StringBuilder 사용
+
 		int len = number.length();
-		// 자리수
-		int cnt = len - k;
-        int left = 0;
-        int right = len - cnt;
-        int max = -1;
-        int idx = 0;
-        
-        while(cnt > 0) {
-        	 max = -1;
-        	 // left ~ right 번째 까지 중의 가장 큰수를 찾는다.
-             for(int j = left ; j <= right ; ++j){
-                 int num = number.charAt(j) - '0';
-//                 System.out.println("num : "+num +"/ max : "+max);
-                 if(num > max){
-                     idx = j;
-                     max = num;
-                 }
-             }
-             
-             // 가장 큰수의 idx로 sb.append
-             sb.append(number.charAt(idx));
-             // left는  idx 보다 다음 숫자
-             left = idx + 1;
-             // right도 범위를 -1 씩 줄여준다.
-             right = number.length() - --cnt;
-//             System.out.println("idx : "+ idx +", sb : "+sb.toString());
-        }
+		int idx = 0; 		// 현재 위치
 
-        return sb.toString();
-	}
-
-	// 출처  : https://programmers.co.kr/learn/courses/30/lessons/42883/solution_groups?language=java
-	// 다른사람 풀이 Stack을 이용함, 조건식 중요!
-	public static String solution_another(String number, int k) {
-	       char[] result = new char[number.length() - k];
-	        Stack<Character> stack = new Stack<>();
-
-	        for (int i=0; i<number.length(); i++) {
-	            char c = number.charAt(i);
-	            while (!stack.isEmpty() && stack.peek() < c && k-- > 0) {
-	                stack.pop();
-	            }
-	            stack.push(c);
-	        }
-	        for (int i=0; i<result.length; i++) {
-	            result[i] = stack.get(i);
-	        }
-	        return new String(result);
+		// i, 숫자 len-k개를 뽑기위해 반복
+		for(int i=0; i<len-k ; i++){
+			char max = '0';
+			// j, 시작은 idx ,
+			// 범위는 k+i까지 ( k크기에다가 i는 뽑은 숫자만큼 늘려준다.)
+			// 첫번째 숫자는 0~k index 사이에 존재함.
+			for(int j=idx; j<=k+i; j++){
+				// 현재 숫자가 가장 크다면, idx + 1 을 하여
+				// 그 다음숫자부터 탐색하게 설정
+				if(max < number.charAt(j)){
+					max = number.charAt(j);
+					idx = j+1;
+				}
+			}
+			sb.append(max);
+		}
+		return sb.toString();
 	}
 }

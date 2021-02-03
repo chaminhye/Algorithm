@@ -101,30 +101,34 @@ JAVA를 이용한 알고리즘 문제풀이
     ( 나름 가장 수월하게 풀었던 파트)
   
     * [모의고사](https://github.com/chaminhye/Algorithm/blob/master/src/programmers/bruteForce/PracticeTest.java )  
+  
     * [소수찾기](https://github.com/chaminhye/Algorithm/blob/master/src/programmers/bruteForce/PrimeNumber.java )  
+  
     * [카펫](https://github.com/chaminhye/Algorithm/blob/master/src/programmers/bruteForce/Carpet.java )  
+  
+      
   
   * #### [탐욕법](https://programmers.co.kr/learn/courses/30/parts/12244)★★★
   
     * [체육복](https://github.com/chaminhye/Algorithm/blob/master/src/programmers/greedy/GymClothes.java )  
     * [조이스틱](https://github.com/chaminhye/Algorithm/blob/master/src/programmers/greedy/Joystick.java )  -> 생각보다 다양한 패턴으로 많이 출제됨!  알파벳 계산하여 출제되는 문제 ★★
-* [구명보트](https://github.com/chaminhye/Algorithm/blob/master/src/programmers/greedy/Lifeboat.java )  
+    * [구명보트](https://github.com/chaminhye/Algorithm/blob/master/src/programmers/greedy/Lifeboat.java )  
     * [큰 수 만들기](https://github.com/chaminhye/Algorithm/blob/master/src/programmers/greedy/MakingBigNumber.java )  
-
-    
-
+  
+  
+  
   * #### [동적계획법](https://programmers.co.kr/learn/courses/30/parts/12263)★★★★★
-
+  
     -> 풀이를 보고 푸는 방법을 참고하여 문제 풀이 진행 ( 연습이 많이 필요한 파트)
-
+  
     * [정수삼각형](https://github.com/chaminhye/Algorithm/blob/master/src/programmers/dynamic/IntegerTriangle.java )  	-> 계산식 세우는 부분 연습필요
-
+  
     * [N으로 표현](https://github.com/chaminhye/Algorithm/blob/master/src/programmers/dynamic/PresentationN.java )  	
-
+  
       
-
+  
   * #### [깊이/너비 우선 탐색(DFS/BFS)](https://programmers.co.kr/learn/courses/30/parts/12421) ★★★★★		
-
+  
     -> 풀이를 보고 푸는 방법을 참고하여 문제 풀이 진행
   
     -> 그림을 그려서 문제에 대한 이해도를 높이자.!
